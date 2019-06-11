@@ -32,6 +32,7 @@
         <object name="user.Console"></object>
         <object name="user.Hashirama"></object>
         <object name="user.Hashorama"></object>
+        <object name="user.FepeACM"></object>
     </group>
     <acl name="Default">
         <right name="general.ModifyOtherObjects" access="false"></right>
