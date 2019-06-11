@@ -22,8 +22,8 @@ guiWindowSetMovable(window, false)
 guiWindowSetSizable(window, false)
 guiSetVisible ( window, false )
 guiSetAlpha ( window, 1 )
-local exitBtn = guiCreateButton(155, 162, 101, 36, "Exit", false, window)
-local infoLbl = guiCreateLabel(18, 26, 228, 130, "Message", false, window)
+local exitBtn = guiCreateButton(155, 162, 101, 36, "Sair", false, window)
+local infoLbl = guiCreateLabel(18, 26, 228, 130, "Mensagem", false, window)
 
 local intData = {
 	start = { 0, 0 },
@@ -99,20 +99,20 @@ function dxDrawLoginPanel( )
 		
 		dxDrawText("Login", pX, pY, pX+485, pY+48, tocolor(255, 255, 255, alpha), 1.50, "bankgothic", "center", "center", false, false, false, false, false)
 		dxDrawLine(pX, pY+48, pX+485, pY+48, tocolor(255, 255, 255, alpha), 1, false)
-		dxDrawText("Username:", pX+10, pY+69, 506, 368, tocolor(255, 255, 255, alpha), 0.80, "bankgothic", "left", "top", false, false, false, false, false)
-		dxDrawText("Password:", pX+10, pY+129, 506, 428, tocolor(255, 255, 255, alpha), 0.80, "bankgothic", "left", "top", false, false, false, false, false)
+		dxDrawText("Usuário:", pX+10, pY+69, 506, 368, tocolor(255, 255, 255, alpha), 0.80, "bankgothic", "left", "top", false, false, false, false, false)
+		dxDrawText("Senha:", pX+10, pY+129, 506, 428, tocolor(255, 255, 255, alpha), 0.80, "bankgothic", "left", "top", false, false, false, false, false)
 		dxDrawLine(pX+281, pY+168, pX+281, pY+168+34, tocolor(255, 255, 255, alpha), 1, false)
 
 		local r, g, b = unpack ( data.login.colors )
 		dxDrawText("Login", pX+166, pY+167, 600, 468, tocolor( 0, 0, 0, alpha), 1.00, "bankgothic", "left", "top", false, false, false, false, false)
 		dxDrawText("Login", pX+166, pY+167, 600, 468, tocolor( r, g, b, alpha), 1.00, "bankgothic", "left", "top", false, false, false, false, false)
 		local r, g, b = unpack ( data.reg.colors )
-		dxDrawText("Register", pX+305, pY+167, 794, 468, tocolor(0, 0, 0, alpha), 1.00, "bankgothic", "left", "top", false, false, false, false, false)
-		dxDrawText("Register", pX+305, pY+167, 794, 468, tocolor(r, g, b, alpha), 1.00, "bankgothic", "left", "top", false, false, false, false, false)
+		dxDrawText("Registrar", pX+305, pY+167, 794, 468, tocolor(0, 0, 0, alpha), 1.00, "bankgothic", "left", "top", false, false, false, false, false)
+		dxDrawText("Registrar", pX+305, pY+167, 794, 468, tocolor(r, g, b, alpha), 1.00, "bankgothic", "left", "top", false, false, false, false, false)
 		
 		local r, g, b = unpack ( data.remember.colors )
-		dxDrawText("Remember Login", pX+30, pY+177, 794, 468, tocolor(0, 0, 0, alpha), 1.00, "default-bold", "left", "top", false, false, false, false, false)
-		dxDrawText("Remember Login", pX+30, pY+177, 794, 468, tocolor(r, g, b, alpha), 1.00, "default-bold", "left", "top", false, false, false, false, false)
+		dxDrawText("Lembrar Login", pX+30, pY+177, 794, 468, tocolor(0, 0, 0, alpha), 1.00, "default-bold", "left", "top", false, false, false, false, false)
+		dxDrawText("Lembrar Login", pX+30, pY+177, 794, 468, tocolor(r, g, b, alpha), 1.00, "default-bold", "left", "top", false, false, false, false, false)
 		dxDrawLinedRectangle ( pX+9, pY+176, 14, 14, tocolor ( 0, 0, 0, alpha ), 1, false )
 		dxDrawLinedRectangle ( pX+9, pY+176, 14, 14, tocolor ( r, g, b, alpha ), 1, false )
 		
@@ -261,26 +261,26 @@ function clientClicking ( btn, state, x, y )
 					playSound( "files/click.mp3" )
 					clicked = true
 				else
-					sendError ( "A username and password are\nrequired to access the server." )
+					sendError ( "Um Login e uma Senha\nsão necessários para acessar o servidor." )
 				end
 
 			-- register button
 			elseif ( x >= pX+300 and x <= pX+440 ) then
 				if ( string.gsub ( user, ' ', '' ) ~= '' and string.gsub ( pass, ' ', '' ) ~= '' ) then
 					if ( string.find ( user, '%s' ) ) then
-						return sendError ( "Spaces are not allowed\nin the username." )
+						return sendError ( "Espaços não são permitidos\nno Login." )
 					end if ( string.find ( pass, '%s' ) ) then
-						return sendError ( "Spaces are not allowed\nin the password." )
+						return sendError ( "Espaços não são permitidos\nna Senha." )
 					end if ( string.len ( user ) < 5 ) then
-						return sendError ( "You're username must be at\nleast 5 characters long." )
+						return sendError ( "Seu Login precisa ter pelo\nmenos 5 caracteres." )
 					end if ( string.len ( pass ) < 6 ) then
-						return sendError ( "You're password must be at\nleast 6 characters long." )
+						return sendError ( "Sua senha precisa ter pelo\nmenos 6 caracteres." )
 					end
 					triggerServerEvent ( "Login:onClientAttemptRegistration", localPlayer, user, pass )
 					playSound( "files/click.mp3" )
 					clicked = true
 				else
-					sendError ( "A username and password are\nrequired to access the server." )
+					sendError ( "Um login e uma senha são\nnecessários para entrar no servidor." )
 				end
 			elseif ( x >= pX+8 and x <= pX + 130 ) then
 				data.remember.clicked = not data.remember.clicked

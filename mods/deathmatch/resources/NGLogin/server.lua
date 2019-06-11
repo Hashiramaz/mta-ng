@@ -46,14 +46,14 @@ function attemptLogin ( user, pass )
 		local account = getAccount ( user )
 		if ( account ) then
 			if ( not logIn ( source, account, pass ) ) then
-				message ( source, "Incorrect password." )
+				message ( source, "Senha incorreta." )
 				return false
 			end
 			exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." has logged in as "..tostring(user).." (IP: "..getPlayerIP(source).."  || Serial: "..getPlayerSerial(source)..")" )
 			setCameraTarget ( source, source )
 			triggerLogin ( source, user, pass, false )
 		else
-			message ( source, "Unknown account." )
+			message ( source, "Eu não te conheço, já tentou se registrar aqui?" )
 			return false
 		end
 	end
@@ -81,9 +81,9 @@ function attemptRegister ( user, pass )
 			local account = addAccount ( user, pass )
 			if ( account ) then
 				if ( not logIn ( source, account, pass ) ) then
-					return message ( source, "Logging in has failed." )
+					return message ( source, "Ih broter, deu falha aqui no login." )
 				end
-				exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." has registered on the server" )
+				exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." tá registrado aqui com a gente. é nois." )
 				triggerLogin ( source, user, pass, true )
 				setElementData ( source, "Job", "UnEmployed" )
 				setElementData ( source, "NGPlayerFunctions:Playtime_Mins", 0 )
@@ -94,10 +94,10 @@ function attemptRegister ( user, pass )
 				exports['NGJobs']:addPlayerToJobDatabase ( source )
 				exports.NGPlayerFunctions:setTeam(source,"Unemployed")
 			else
-				message ( source, "Adding account failed.\nPlease report to an admin." )
+				message ( source, "Não deu pra adicionar a conta.\nfala com um adm aí namoral que a gente resolve." )
 			end
 		else
-			message ( source, "This account already exists." )
+			message ( source, "Po, essa conta já existe." )
 		end
 	end
 	return false
