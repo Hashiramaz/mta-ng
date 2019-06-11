@@ -97,7 +97,7 @@ function dxDrawLoginPanel( )
 		
 		local alpha = intData.alpha
 		
-		dxDrawText("Login", pX, pY, pX+485, pY+48, tocolor(255, 255, 255, alpha), 1.50, "bankgothic", "center", "center", false, false, false, false, false)
+		dxDrawText("Sinuquinha de Domingo", pX, pY, pX+485, pY+48, tocolor(255, 255, 255, alpha), 1.50, "bankgothic", "center", "center", false, false, false, false, false)
 		dxDrawLine(pX, pY+48, pX+485, pY+48, tocolor(255, 255, 255, alpha), 1, false)
 		dxDrawText("Usuário:", pX+10, pY+69, 506, 368, tocolor(255, 255, 255, alpha), 0.80, "bankgothic", "left", "top", false, false, false, false, false)
 		dxDrawText("Senha:", pX+10, pY+129, 506, 428, tocolor(255, 255, 255, alpha), 0.80, "bankgothic", "left", "top", false, false, false, false, false)
