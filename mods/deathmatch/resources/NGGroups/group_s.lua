@@ -10,7 +10,7 @@
 local groups = { }
 
 addEventHandler ( "onResourceStart", resourceRoot, function ( ) 
-	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS groups ( id INT, name VARCHAR(20), info TEXT )" )
+	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS groups_ ( id INT, name VARCHAR(20), info TEXT )" )
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_members ( id INT, member_name VARCHAR(30), rank VARCHAR(20), join_date VARCHAR(40) )")
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_rank ( id INT, rank VARCHAR(30), perms TEXT )" )
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_logs ( id INT, time VARCHAR(40), account VARCHAR(40), log TEXT )" )
@@ -90,13 +90,13 @@ groups = {
 }]]
 
 function saveGroups ( )
-	exports.NGSQL:db_exec ( "DELETE FROM groups" )
+	exports.NGSQL:db_exec ( "DELETE FROM groups_" )
 	exports.NGSQL:db_exec ( "DELETE FROM group_rank" )
 	exports.NGSQL:db_exec ( "DELETE FROM group_members")
 	exports.NGSQL:db_exec ( "DELETE FROM group_logs")
 
 	for i, v in pairs ( groups ) do
-		exports.NGSQL:db_exec ( "INSERT INTO groups ( id, name, info ) VALUES ( ?, ?, ? )", tostring ( v.info.id ), tostring ( i ), toJSON ( v.info ) )
+		exports.NGSQL:db_exec ( "INSERT INTO groups_ ( id, name, info ) VALUES ( ?, ?, ? )", tostring ( v.info.id ), tostring ( i ), toJSON ( v.info ) )
 		for k, val in pairs ( v.ranks ) do 
 			exports.NGSQL:db_exec ( "INSERT INTO group_rank ( id, rank, perms ) VALUES ( ?, ?, ? )", tostring ( v.info.id ), k, toJSON ( val ) )
 		end 
@@ -112,7 +112,7 @@ end
 
 function loadGroups ( )
 	local start = getTickCount ( )
-	local groups_ = exports.NGSQL:db_query ( "SELECT * FROM groups" )
+	local groups_ = exports.NGSQL:db_query ( "SELECT * FROM groups_" )
 	for i, v in pairs ( groups_ ) do
 		if ( v and v.name and not groups [ v.name ] ) then
 			groups [ v.name ] = { }
@@ -286,7 +286,7 @@ function deleteGroup ( group )
 	end
 	local id = groups [ group ].info.id
 	groups [ group ] = nil
-	exports.NGSQL:db_exec ( "DELETE FROM groups WHERE id=?", tostring ( id ) )
+	exports.NGSQL:db_exec ( "DELETE FROM groups_ WHERE id=?", tostring ( id ) )
 	exports.NGSQL:db_exec ( "DELETE FROM group_logs WHERE id=?", tostring ( id ) )
 	exports.NGSQL:db_exec ( "DELETE FROM group_members WHERE id=?", tostring ( id ) )
 	exports.NGSQL:db_exec ( "DELETE FROM group_rank WHERE id=?", tostring ( id ) )
