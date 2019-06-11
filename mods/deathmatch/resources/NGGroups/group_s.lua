@@ -11,8 +11,8 @@ local groups = { }
 
 addEventHandler ( "onResourceStart", resourceRoot, function ( ) 
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS groups_ ( id INT, name VARCHAR(20), info TEXT )" )
-	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_members ( id INT, member_name VARCHAR(30), rank VARCHAR(20), join_date VARCHAR(40) )")
-	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_rank ( id INT, rank VARCHAR(30), perms TEXT )" )
+	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_members ( id INT, member_name VARCHAR(30), ranking VARCHAR(20), join_date VARCHAR(40) )")
+	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_rank ( id INT, ranking VARCHAR(30), perms TEXT )" )
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_logs ( id INT, time VARCHAR(40), account VARCHAR(40), log TEXT )" )
 
 	exports.scoreboard:scoreboardAddColumn ( "Group", getRootElement ( ), 90, "Group", 10 )
@@ -53,7 +53,7 @@ groups = {
 		},
 
 		members = { 
-			["xXMADEXx"] = { rank="Founder", joined="2014-06-18:01-35-57" } 
+			["xXMADEXx"] = { ranking="Founder", joined="2014-06-18:01-35-57" } 
 		},
 
 		ranks = {
@@ -98,10 +98,10 @@ function saveGroups ( )
 	for i, v in pairs ( groups ) do
 		exports.NGSQL:db_exec ( "INSERT INTO groups_ ( id, name, info ) VALUES ( ?, ?, ? )", tostring ( v.info.id ), tostring ( i ), toJSON ( v.info ) )
 		for k, val in pairs ( v.ranks ) do 
-			exports.NGSQL:db_exec ( "INSERT INTO group_rank ( id, rank, perms ) VALUES ( ?, ?, ? )", tostring ( v.info.id ), k, toJSON ( val ) )
+			exports.NGSQL:db_exec ( "INSERT INTO group_rank ( id, ranking, perms ) VALUES ( ?, ?, ? )", tostring ( v.info.id ), k, toJSON ( val ) )
 		end 
 		for k, val in pairs ( v.members ) do
-			exports.NGSQL:db_exec ( "INSERT INTO group_members ( id, member_name, rank, join_date ) VALUES ( ?, ?, ?, ? )", tostring ( v.info.id ), k, val.rank, val.joined )
+			exports.NGSQL:db_exec ( "INSERT INTO group_members ( id, member_name, ranking, join_date ) VALUES ( ?, ?, ?, ? )", tostring ( v.info.id ), k, val.ranking, val.joined )
 		end 
 
 		for k, val in ipairs ( v.log ) do
@@ -125,11 +125,11 @@ function loadGroups ( )
 			groups [ v.name ].info = fromJSON ( v.info )
 			groups [ v.name ].info.id = tonumber ( v.id )
 
-			-- load rank table
+			-- load ranking table
 			local ranks = exports.NGSQL:db_query ( "SELECT * FROM group_rank WHERE id=?", tostring ( v.id ) )
 			for i, val in pairs ( ranks ) do
-				if ( not groups [ v.name ].ranks[val.rank] ) then
-					groups [ v.name ].ranks[val.rank] = fromJSON ( val.perms )
+				if ( not groups [ v.name ].ranks[val.ranking] ) then
+					groups [ v.name ].ranks[val.ranking] = fromJSON ( val.perms )
 				end
 			end 
 
@@ -137,7 +137,7 @@ function loadGroups ( )
 			local members = exports.NGSQL:db_query ( "SELECT * FROM group_members WHERE id=?", tostring ( v.id ) )
 			for i, val in pairs ( members ) do
 				groups [v.name].members[val.member_name] = { }
-				groups [v.name].members[val.member_name].rank = val.rank
+				groups [v.name].members[val.member_name].ranking = val.ranking
 				groups [v.name].members[val.member_name].joined = val.join_date
 
 				for _, player in pairs ( getElementsByType ( "player" ) ) do
@@ -146,7 +146,7 @@ function loadGroups ( )
 						local acc = getAccountName ( a )
 						if ( val.member_name == acc ) then
 							setElementData ( player, "Group", tostring ( v.name ) )
-							setElementData ( player, "Group Rank", tostring ( val.rank ) )
+							setElementData ( player, "Group Rank", tostring ( val.ranking ) )
 						end 
 					end
 				end 
@@ -222,7 +222,7 @@ function createGroup ( name, color, type, owner )
 		},
 
 		members = { 
-			[owner] = { rank="Founder", joined=getThisTime ( ) } 
+			[owner] = { ranking="Founder", joined=getThisTime ( ) } 
 		},
 
 		ranks = {
@@ -326,7 +326,7 @@ addEventHandler ( "NGGroups->GEvents:onPlayerAttemptGroupMake", root, function (
 		setElementData ( source, "Group", data.name );
 		setElementData ( source, "Group Rank", "Founder" );
 		
-		--groups [ data.name ].members [ getAccountName ( getPlayerAccount ( source ) ) ].rank = "Founder";
+		--groups [ data.name ].members [ getAccountName ( getPlayerAccount ( source ) ) ].ranking = "Founder";
 		
 		outputDebugString ( "CREATED GROUP "..tostring(data.name)..". Owner: "..getPlayerName(source) );
 		
@@ -451,7 +451,7 @@ function setPlayerGroup ( player, group )
 	if ( group == "None" ) then
 		return setElementData ( player, "Group Rank", "None" )
 	else
-		groups [ group ].members [ getAccountName ( acc ) ] = { rank="Member", joined=getThisTime() }
+		groups [ group ].members [ getAccountName ( acc ) ] = { ranking="Member", joined=getThisTime() }
 		return setElementData ( player, "Group Rank", "Member" )
 	end
 
@@ -491,12 +491,12 @@ end )
 	function setAccountRank ( group, account, newrank )
 		local account, newrank = tostring ( account ), tostring ( newrank )
 		exports.ngsql:db_exec ( "UPDATE accountdata SET GroupRank=? WHERE Username=?", newrank, account )
-		groups[group].members[account].rank = newrank
+		groups[group].members[account].ranking = newrank
 		for i, v in pairs ( getElementsByType ( "player" ) ) do
 			local a = getPlayerAccount ( v )
 			if ( a and not isGuestAccount ( a ) and a == account ) then
 				setElementData ( v, "Group Rank", tostring ( newrank ) )
-				outputChatBox ( "You rank has been changed to "..tostring ( newrank ), v, 255, 255, 0)
+				outputChatBox ( "You ranking has been changed to "..tostring ( newrank ), v, 255, 255, 0)
 				break
 			end
 		end
@@ -511,9 +511,9 @@ end )
 			refreshPlayerGroupPanel ( source )
 			return false
 		end
-		outputGroupLog ( group, "Changed "..account.."'s rank from "..groups[group].members[account].rank.." to "..newrank, source )
+		outputGroupLog ( group, "Changed "..account.."'s ranking from "..groups[group].members[account].ranking.." to "..newrank, source )
 		setAccountRank ( group, account, newrank )
-		exports.ngmessages:sendClientMessage ( "You have changed "..tostring ( account ).."'s rank!", source, 255, 255, 0)
+		exports.ngmessages:sendClientMessage ( "You have changed "..tostring ( account ).."'s ranking!", source, 255, 255, 0)
 		refreshPlayerGroupPanel ( source )
 	end )
 
@@ -573,7 +573,7 @@ end )
 			end 
 		end 
 		
-		groups [ g ].members [ a ] = { rank="Member", joined = getThisTime() }
+		groups [ g ].members [ a ] = { ranking="Member", joined = getThisTime() }
 		setPlayerGroup ( source, g )
 		outputGroupMessage ( getPlayerName ( source ).." has joined the group!", g )
 		refreshPlayerGroupPanel ( source )
@@ -592,10 +592,10 @@ end )
 
 	addEvent ( "NGGroups->Modules->Groups->Ranks->AddRank", true )
 	addEventHandler ( "NGGroups->Modules->Groups->Ranks->AddRank", root, function ( group, name, info )
-		outputGroupLog ( group, "Added rank '"..tostring(name).."'", source )
+		outputGroupLog ( group, "Added ranking '"..tostring(name).."'", source )
 		addRankToGroup ( group, name, info )
 		refreshPlayerGroupPanel ( source )
-		exports.ngmessages:sendClientMessage ( "The rank has been added.", source, 0, 255, 0 )
+		exports.ngmessages:sendClientMessage ( "The ranking has been added.", source, 0, 255, 0 )
 	end )
 
 	function setGroupMotd ( group, motd )
@@ -630,11 +630,11 @@ function doesGroupExist ( group )
 	return false
 end
 
-function isRankInGroup ( group, rank )
+function isRankInGroup ( group, ranking )
 	local group = tostring ( group ):lower ( )
 	for i, v in pairs ( groups ) do
 		if ( i:lower() == group ) then
-			if ( v.ranks and v.ranks [ rank ] ) then
+			if ( v.ranks and v.ranks [ ranking ] ) then
 				return true
 			end 
 			break
@@ -760,9 +760,9 @@ addEventHandler("NGGroups->Modules->Groups->Colors->UpdateColor",root,function(g
 end )
 
 
-function isRankInGroup ( group, rank )
+function isRankInGroup ( group, ranking )
 	if ( doesGroupExist ( group ) ) then
-		if ( groups [ group ].ranks [ rank ] ) then
+		if ( groups [ group ].ranks [ ranking ] ) then
 			return true
 		end
 	end
