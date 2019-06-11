@@ -1,0 +1,127 @@
+==================================================================
+= Multi Theft Auto: San Andreas v1.5.6 [64 bit]
+==================================================================
+= Server name      : DALE SINUQUINHA DE DOMINGO
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 100
+= HTTP port        : 22005
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[19-06-11 05:33:04] Resources: 68 loaded, 0 failed
+[19-06-11 05:33:04] Starting resources...
+[19-06-11 05:33:04] Server minclientversion is now 1.5.6-9.16588.0
+[19-06-11 05:33:04] INFO: Database has been connected
+[19-06-11 05:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 05:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 05:33:04] WARNING: NGSQL/sql.lua:21: dbPoll failed; You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'groups' at line 1
+[19-06-11 05:33:04] ERROR: NGGroups/group_s.lua:116: bad argument #1 to 'pairs' (table expected, got boolean)
+[19-06-11 05:33:04] INFO: Default jail warp location: 1881.57, -1077.24, 1357.5
+[19-06-11 05:33:04] INFO: Admin jail warp location: 1829.46, -1064.47, 1356.84
+[19-06-11 05:33:04] INFO: Release jail warp location: 1543.32, -1675.6, 13.56
+[19-06-11 05:33:04] ERROR: Couldn't find resource guied. Check it exists.
+[19-06-11 05:33:04] ERROR: Couldn't find resource guirun. Check it exists.
+[19-06-11 05:33:04] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://mtasa.com/authserial
+[19-06-11 05:33:04] WARNING: <owner_email_address> not set
+[19-06-11 05:33:04] Server started and is ready to accept connections!
+[19-06-11 05:33:04] To stop the server, type 'shutdown' or press Ctrl-C
+[19-06-11 05:33:04] Type 'help' for a list of commands.
+[19-06-11 05:33:04] WARNING: NGSQL/sql.lua:25: dbExec failed; (1064) You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'groups ( id INT, name VARCHAR(20), info TEXT )' at line 1
+[19-06-11 05:33:04] WARNING: NGSQL/sql.lua:25: dbExec failed; (1064) You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank VARCHAR(20), join_date VARCHAR(40) )' at line 1
+[19-06-11 05:33:04] WARNING: NGSQL/sql.lua:25: dbExec failed; (1064) You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank VARCHAR(30), perms TEXT )' at line 1
+[19-06-11 05:33:04] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 05:33:04] Querying MTA master server... success! (Auto detected IP:54.233.107.66)
+[19-06-11 05:33:10] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 05:33:16] CONNECT: Hashorama connected (IP: 177.136.147.92  Serial: 8233165DAB63606F4B70CD2FD1C18783  Version: 1.5.6-9.18560.0)
+[19-06-11 05:33:16] JOIN: Hashorama joined the game (IP: 177.136.147.92)
+[19-06-11 05:33:29] LOGIN: (Everyone) Hashorama successfully logged in as 'hashirama' (IP: 177.136.147.92  Serial: 8233165DAB63606F4B70CD2FD1C18783)
+[19-06-11 05:33:29] INFO: NGSQL: Creating account hashirama for player Hashorama (Serial: 8233165DAB63606F4B70CD2FD1C18783 || IP: 177.136.147.92)
+[19-06-11 05:40:51] INFO: CREATED GROUP sinuquinha. Owner: Hashorama
+[19-06-11 05:42:18] WARNING: NGSQL/sql.lua:25: dbExec failed; (1064) You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'groups WHERE id='0'' at line 1
+[19-06-11 05:42:18] WARNING: NGSQL/sql.lua:25: dbExec failed; (1146) Table 'sampdb.group_members' doesn't exist
+[19-06-11 05:42:18] WARNING: NGSQL/sql.lua:25: dbExec failed; (1146) Table 'sampdb.group_rank' doesn't exist
+[19-06-11 05:42:28] INFO: CREATED GROUP os pika. Owner: Hashorama
+[19-06-11 05:48:04] INFO: MATH: Question 61 - 31 + 1699 has been generated with an answer of 1729
+[19-06-11 05:48:25] Upgrading all resources...
+[19-06-11 05:48:25] Upgrade completed. Refreshing all resources...
+[19-06-11 05:49:01] QUIT: Hashorama left the game [Quit]
+[19-06-11 05:49:08] CONNECT: Hashorama connected (IP: 177.136.147.92  Serial: 8233165DAB63606F4B70CD2FD1C18783  Version: 1.5.6-9.18560.0)
+[19-06-11 05:49:09] JOIN: Hashorama joined the game (IP: 177.136.147.92)
+[19-06-11 05:49:31] LOGIN: (Everyone, Level 5) Hashorama successfully logged in as 'Hashorama' (IP: 177.136.147.92  Serial: 8233165DAB63606F4B70CD2FD1C18783)
+[19-06-11 05:49:31] INFO: NGSQL: Creating account Hashorama for player Hashorama (Serial: 8233165DAB63606F4B70CD2FD1C18783 || IP: 177.136.147.92)
+[19-06-11 06:03:04] INFO: MATH: Question 84 - 34 + 7249 has been generated with an answer of 7299
+[19-06-11 06:03:16] QUIT: Hashorama left the game [Quit]
+[19-06-11 06:18:04] INFO: MATH: Question 84 - 36 + 2542 has been generated with an answer of 2590
+[19-06-11 06:33:04] INFO: Sending out VIP cash....
+[19-06-11 06:33:04] INFO: Sending VIP cash
+[19-06-11 06:33:04] INFO: MATH: Question 57 - 36 + 1520 has been generated with an answer of 1541
+[19-06-11 06:48:04] INFO: MATH: Question 67 - 22 + 8283 has been generated with an answer of 8328
+[19-06-11 07:03:04] INFO: MATH: Question 57 - 33 + 3149 has been generated with an answer of 3173
+[19-06-11 07:18:04] INFO: MATH: Question 85 - 21 + 4385 has been generated with an answer of 4449
+[19-06-11 07:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 07:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 07:33:04] INFO: Sending out VIP cash....
+[19-06-11 07:33:04] INFO: Sending VIP cash
+[19-06-11 07:33:04] INFO: MATH: Question 62 - 45 + 6593 has been generated with an answer of 6610
+[19-06-11 07:33:04] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 07:33:10] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 07:48:04] INFO: MATH: Question 66 - 20 + 7728 has been generated with an answer of 7774
+[19-06-11 08:03:04] INFO: MATH: Question 58 - 37 + 3764 has been generated with an answer of 3785
+[19-06-11 08:18:04] INFO: MATH: Question 51 - 40 + 2590 has been generated with an answer of 2601
+[19-06-11 08:33:04] INFO: Sending out VIP cash....
+[19-06-11 08:33:04] INFO: Sending VIP cash
+[19-06-11 08:33:04] INFO: MATH: Question 68 - 31 + 2462 has been generated with an answer of 2499
+[19-06-11 08:48:04] INFO: MATH: Question 63 - 32 + 2996 has been generated with an answer of 3027
+[19-06-11 09:03:04] INFO: MATH: Question 70 - 24 + 6524 has been generated with an answer of 6570
+[19-06-11 09:18:04] INFO: MATH: Question 74 - 27 + 4795 has been generated with an answer of 4842
+[19-06-11 09:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 09:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 09:33:04] INFO: Sending out VIP cash....
+[19-06-11 09:33:04] INFO: Sending VIP cash
+[19-06-11 09:33:04] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 09:33:04] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 09:33:04] INFO: MATH: Question 82 - 44 + 6393 has been generated with an answer of 6431
+[19-06-11 09:48:04] INFO: MATH: Question 84 - 41 + 1227 has been generated with an answer of 1270
+[19-06-11 10:03:04] INFO: MATH: Question 85 - 34 + 1749 has been generated with an answer of 1800
+[19-06-11 10:18:04] INFO: MATH: Question 75 - 21 + 2948 has been generated with an answer of 3002
+[19-06-11 10:33:04] INFO: Sending out VIP cash....
+[19-06-11 10:33:04] INFO: Sending VIP cash
+[19-06-11 10:33:04] INFO: MATH: Question 78 - 23 + 5724 has been generated with an answer of 5779
+[19-06-11 10:48:04] INFO: MATH: Question 73 - 30 + 1824 has been generated with an answer of 1867
+[19-06-11 11:03:04] INFO: MATH: Question 53 - 34 + 2584 has been generated with an answer of 2603
+[19-06-11 11:18:04] INFO: MATH: Question 69 - 34 + 6290 has been generated with an answer of 6325
+[19-06-11 11:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 11:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 11:33:04] INFO: Sending out VIP cash....
+[19-06-11 11:33:04] INFO: Sending VIP cash
+[19-06-11 11:33:04] INFO: MATH: Question 50 - 25 + 7667 has been generated with an answer of 7692
+[19-06-11 11:33:04] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 11:33:10] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 11:48:04] INFO: MATH: Question 85 - 42 + 1351 has been generated with an answer of 1394
+[19-06-11 12:03:04] INFO: MATH: Question 89 - 21 + 8971 has been generated with an answer of 9039
+[19-06-11 12:18:04] INFO: MATH: Question 70 - 30 + 2453 has been generated with an answer of 2493
+[19-06-11 12:33:04] INFO: Sending out VIP cash....
+[19-06-11 12:33:04] INFO: Sending VIP cash
+[19-06-11 12:33:04] INFO: MATH: Question 78 - 30 + 6103 has been generated with an answer of 6151
+[19-06-11 12:48:04] INFO: MATH: Question 50 - 34 + 3937 has been generated with an answer of 3953
+[19-06-11 13:03:04] INFO: MATH: Question 88 - 27 + 6311 has been generated with an answer of 6372
+[19-06-11 13:18:05] INFO: MATH: Question 72 - 28 + 1478 has been generated with an answer of 1522
+[19-06-11 13:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 13:33:04] INFO: Checking for NG Gamemode updates 
+[19-06-11 13:33:04] INFO: Sending out VIP cash....
+[19-06-11 13:33:04] INFO: Sending VIP cash
+[19-06-11 13:33:05] INFO: MATH: Question 87 - 43 + 6950 has been generated with an answer of 6994
+[19-06-11 13:33:05] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 13:33:11] INFO: The NG Gamemode is up-to date! Version: 1.1.4
+[19-06-11 13:48:05] INFO: MATH: Question 75 - 32 + 7352 has been generated with an answer of 7395
+[19-06-11 14:03:05] INFO: MATH: Question 89 - 31 + 7908 has been generated with an answer of 7966
+[19-06-11 14:18:05] INFO: MATH: Question 79 - 33 + 6749 has been generated with an answer of 6795
+[19-06-11 14:33:04] INFO: Sending out VIP cash....
+[19-06-11 14:33:04] INFO: Sending VIP cash
+[19-06-11 14:33:05] INFO: MATH: Question 73 - 29 + 6752 has been generated with an answer of 6796
+[19-06-11 14:48:05] INFO: MATH: Question 69 - 28 + 2895 has been generated with an answer of 2936
+[19-06-11 15:03:05] INFO: MATH: Question 61 - 28 + 4773 has been generated with an answer of 4806
+[19-06-11 15:18:05] INFO: MATH: Question 84 - 32 + 8575 has been generated with an answer of 8627
