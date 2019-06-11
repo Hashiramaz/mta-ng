@@ -10,8 +10,8 @@
 local groups = { }
 
 addEventHandler ( "onResourceStart", resourceRoot, function ( ) 
-	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS groups ( id INT, name VARCHAR(20), info TEXT )" );
-	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_members ( id INT, member_name VARCHAR(30), rank VARCHAR(20), join_date VARCHAR(40) )");
+	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS groups ( id INT, name VARCHAR(20), info TEXT )" )
+	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_members ( id INT, member_name VARCHAR(30), rank VARCHAR(20), join_date VARCHAR(40) )")
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_rank ( id INT, rank VARCHAR(30), perms TEXT )" )
 	exports.NGSQL:db_exec ( "CREATE TABLE IF NOT EXISTS group_logs ( id INT, time VARCHAR(40), account VARCHAR(40), log TEXT )" )
 
