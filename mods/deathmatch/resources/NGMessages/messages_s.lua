@@ -30,9 +30,9 @@ end
 
 addEventHandler ( "onPlayerLogin", root, function ( )
 	if ( not exports['NGAdministration']:isPlayerStaff ( source ) ) then
-		sendClientMessage ( getPlayerName ( source ).." has logged into NG:RPG!", root, 0, 255, 0 )
+		sendClientMessage ( getPlayerName ( source ).." se conectou no Sinuquinha:RPG!", root, 0, 255, 0 )
 	else
 		local lvl = exports['NGAdministration']:getPlayerStaffLevel ( source, 'string' )
-		outputChatBox ( "* "..getPlayerName ( source ).." has logged in - "..lvl, root, math.random ( 100, 250 ), math.random ( 100, 250 ), math.random ( 100, 250 ) )
+		outputChatBox ( "* "..getPlayerName ( source ).." Se conectou - "..lvl, root, math.random ( 100, 250 ), math.random ( 100, 250 ), math.random ( 100, 250 ) )
 	end
 end )
