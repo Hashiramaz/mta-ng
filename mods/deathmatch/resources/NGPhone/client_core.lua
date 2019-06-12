@@ -71,7 +71,7 @@ pages['home'].base_flappy = guiCreateStaticImage ( 5+margin_x*2, 5+margin_y*2, a
 pages['home'].base_2048 = guiCreateStaticImage ( 5, 5+margin_y*2, appSize, appSize, "images/app_2048.png", false, background )
 
 setElementData ( pages['home'].base_money, "tooltip-text", "PayPal" )
-setElementData ( pages['home'].base_sms, "tooltip-text", "SMS" )
+setElementData ( pages['home'].base_sms, "tooltip-text", "ZapZap" )
 setElementData ( pages['home'].base_bank, "tooltip-text", "Banco" )
 setElementData ( pages['home'].base_music, "tooltip-text", "Spotify" )
 setElementData ( pages['home'].base_notes, "tooltip-text", "Notas" )
@@ -413,7 +413,7 @@ function onPhoneRender ( )
 	end
 	phone_x = x
 	phone_y = y
-	dxDrawFixedText ( "Nerd Gaming Mobile",  x, y+78, 350, 20, tocolor ( 255, 255, 255, 255 ), 1, "default-bold", "center", "top", false, false, true )
+	dxDrawFixedText ( "ISinuquinha",  x, y+78, 350, 20, tocolor ( 255, 255, 255, 255 ), 1, "default-bold", "center", "top", false, false, true )
 	Draw2048Images ( )
 	if ( LoadedPage == "home" ) then
 		local x1, y1 = guiGetPosition ( base, false )
