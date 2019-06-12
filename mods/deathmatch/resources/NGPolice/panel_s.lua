@@ -68,7 +68,7 @@ function outputDispatchMessage ( msg )
 	for i, v in pairs ( getElementsByType ( "player" ) ) do
 		local t = getPlayerTeam ( v )
 		if t and exports.NGPlayerFunctions:isTeamLaw ( getTeamName ( t ) ) then
-			exports.NGMessages:sendClientMessage ( "(Dispatch) New message, check the computer (F5) -> Dispatch", v, 255, 255, 255 )
+			exports.NGMessages:sendClientMessage ( "(Despache) Nova mensagem, cheque o computador (F5) -> Despache", v, 255, 255, 255 )
 		end
 		triggerClientEvent ( root, "NGPolice:Modules->Dispatch:onDispatchMessage", root, msg )
 	end

@@ -208,15 +208,15 @@ end )
 -- join/quit messages
 addEventHandler ( "onClientPlayerJoin", root, function ( ) 
 	if joinquit then
-		sendClientMessage ( "* "..getPlayerName(source).." has joined into the server", 255, 150, 150 )
+		sendClientMessage ( "* "..getPlayerName(source).." entrou no servidor", 255, 150, 150 )
 	end
 end ) addEventHandler ( "onClientPlayerQuit", root, function ( r )
 	if ( joinquit ) then
-		sendClientMessage ( "* "..getPlayerName(source).." has disconnect from the server ("..r..")", 255, 150, 150 )
+		sendClientMessage ( "* "..getPlayerName(source).." desconectou do servidor ("..r..")", 255, 150, 150 )
 	end
 end )
 
 -- Nickname changes
 addEventHandler ( "onClientPlayerChangeNick", root, function ( o, n )
-	sendClientMessage ( "* "..o.." is now known as "..n, 255, 150, 150 )
+	sendClientMessage ( "* "..o.." é conhecido(a) como "..n, 255, 150, 150 )
 end )
