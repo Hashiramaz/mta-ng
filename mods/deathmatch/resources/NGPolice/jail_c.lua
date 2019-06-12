@@ -11,8 +11,8 @@ addEventHandler ( "onPlayerArrested", root, function ( dur )
 end )
 
 function dxDrawRemainingJailTime ( )
-	dxDrawText ( tostring ( remainingTime ).. " seconds", 0, 0, (sx/1.1)+2, (sy/1.1)+2, tocolor ( 0, 0, 0, 255 ), 2.5, 'default-bold', 'right', 'bottom' )
-	dxDrawText ( tostring ( remainingTime ).. " seconds", 0, 0, sx/1.1, sy/1.1, tocolor ( 255, 255, 0, 255 ), 2.5, 'default-bold', 'right', 'bottom' )
+	dxDrawText ( tostring ( remainingTime ).. " segundos", 0, 0, (sx/1.1)+2, (sy/1.1)+2, tocolor ( 0, 0, 0, 255 ), 2.5, 'default-bold', 'right', 'bottom' )
+	dxDrawText ( tostring ( remainingTime ).. " segundos", 0, 0, sx/1.1, sy/1.1, tocolor ( 255, 255, 0, 255 ), 2.5, 'default-bold', 'right', 'bottom' )
 	if ( getTickCount ( ) - l_tick >= 1000 ) then
 		remainingTime = remainingTime - 1
 		l_tick = getTickCount ( )

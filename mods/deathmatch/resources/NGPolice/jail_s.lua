@@ -99,9 +99,9 @@ function jailPlayer ( p, dur, announce, element, reason )
 			local reason = reason or "Classified"
 			local msg = ""
 			if ( element and reason ) then
-				msg = getPlayerName ( p ).." has been jailed by "..getPlayerName ( element ).." for "..tostring ( dur ).." seconds ("..reason..")"
+				msg = getPlayerName ( p ).." foi preso com sucesso por "..getPlayerName ( element ).." por "..tostring ( dur ).." segundos ("..reason..")"
 			elseif ( element ) then
-				msg =  getPlayerName ( p ).." has been jailed by "..getPlayerName ( element ).." for "..tostring ( dur ).." seconds"
+				msg =  getPlayerName ( p ).." foi preso com sucesso por "..getPlayerName ( element ).." por "..tostring ( dur ).." segundos"
 			end
 			exports['NGMessages']:sendClientMessage ( msg, root, 0, 120, 255 )
 			exports['NGLogs']:outputPunishLog ( p, element or "Console", tostring ( msg ) )
@@ -118,11 +118,11 @@ function unjailPlayer ( p, triggerClient )
 	setElementDimension ( p, 0 )
 	setElementInterior ( p, 0 )
 	setElementPosition ( p, 1543.32, -1675.6, 13.56 )
-	exports['NGMessages']:sendClientMessage ( "You've been released from jail! Behave next time.", p, 0, 255, 0 )
+	exports['NGMessages']:sendClientMessage ( "Você foi solto da prisão! Comporte-se!", p, 0, 255, 0 )
 	jailedPlayers[p] = nil
 	setElementData ( p, "NGPolice:JailTime", nil )
 	setElementData ( p, "isGodmodeEnabled", nil )
-	exports['NGLogs']:outputActionLog ( getPlayerName ( p ).." has been unjailed" )
+	exports['NGLogs']:outputActionLog ( getPlayerName ( p ).." foi solto!" )
 	if ( triggerClient ) then
 		triggerClientEvent ( p, 'NGJail:StopJailClientTimer', p ) 
 	end
@@ -141,7 +141,7 @@ addCommandHandler ( "jail", function ( p, _, p2, time, ... )
 			if toJ then
 				jailPlayer ( toJ, time, true, p, table.concat ( { ... }, " " ) )
 			else
-				exports['NGMessages']:sendClientMessage ( "No player found with \""..p2.."\" in their name.", p, 255, 0, 0 )
+				exports['NGMessages']:sendClientMessage ( "Nenhum jogador encontrado com \""..p2.."\" no seu nome.", p, 255, 0, 0 )
 			end
 		else
 			exports['NGMessages']:sendClientMessage ( "Syntax: /jail [player name/part of name] [seconds] [reason]", p, 255, 255, 0 )
@@ -157,16 +157,16 @@ addCommandHandler ( "unjail", function ( p, _, p2 )
 	end if ( not getPlayerFromName ( p2 ) ) then
 		p2 = exports['NGPlayerFunctions']:getPlayerFromNamePart ( p2 )
 		if not p2 then
-			return exports['NGMessages']:sendClientMessage ( "That player doesn't exist on the server.", p, 255, 0, 0 )
+			return exports['NGMessages']:sendClientMessage ( "Esse jogador não existe no servidor.", p, 255, 0, 0 )
 		end
 	end
 	
 	if ( jailedPlayers[p2] ) then
-		exports['NGMessages']:sendClientMessage ( "You've unjailed "..getPlayerName ( p2 ).."!", p, 0, 255, 0 )
-		exports['NGMessages']:sendClientMessage ( "You've been unjailed by "..getPlayerName ( p ).."!", p2, 0, 255, 0 )
+		exports['NGMessages']:sendClientMessage ( "Você foi solto, "..getPlayerName ( p2 ).."!", p, 0, 255, 0 )
+		exports['NGMessages']:sendClientMessage ( "Você foi solto por "..getPlayerName ( p ).."!", p2, 0, 255, 0 )
 		unjailPlayer ( p2, true )
 	else
-		exports['NGMessages']:sendClientMessage ( "That player isn't jailed.", p, 255, 0, 0 )
+		exports['NGMessages']:sendClientMessage ( "Este jogador não está preso.", p, 255, 0, 0 )
 	end
 	
 end )
