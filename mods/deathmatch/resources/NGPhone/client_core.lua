@@ -70,15 +70,15 @@ pages['home'].base_stats = guiCreateStaticImage ( 5+margin_x, 5+margin_y*2, appS
 pages['home'].base_flappy = guiCreateStaticImage ( 5+margin_x*2, 5+margin_y*2, appSize, appSize, "images/app_flappybird.png", false, background )
 pages['home'].base_2048 = guiCreateStaticImage ( 5, 5+margin_y*2, appSize, appSize, "images/app_2048.png", false, background )
 
-setElementData ( pages['home'].base_money, "tooltip-text", "Send Money" )
+setElementData ( pages['home'].base_money, "tooltip-text", "PayPal" )
 setElementData ( pages['home'].base_sms, "tooltip-text", "SMS" )
-setElementData ( pages['home'].base_bank, "tooltip-text", "Bank" )
-setElementData ( pages['home'].base_music, "tooltip-text", "Music" )
-setElementData ( pages['home'].base_notes, "tooltip-text", "Notes" )
-setElementData ( pages['home'].base_waypoints, "tooltip-text", "Waypoints" )
-setElementData ( pages['home'].base_vehicles, "tooltip-text", "Vehicles" )
-setElementData ( pages['home'].base_settings, "tooltip-text", "Settings" )
-setElementData ( pages['home'].base_stats, "tooltip-text", "User & Server Stats" )
+setElementData ( pages['home'].base_bank, "tooltip-text", "Banco" )
+setElementData ( pages['home'].base_music, "tooltip-text", "Música" )
+setElementData ( pages['home'].base_notes, "tooltip-text", "Notas" )
+setElementData ( pages['home'].base_waypoints, "tooltip-text", "GPS" )
+setElementData ( pages['home'].base_vehicles, "tooltip-text", "Veículos" )
+setElementData ( pages['home'].base_settings, "tooltip-text", "Configurações" )
+setElementData ( pages['home'].base_stats, "tooltip-text", "Usuário e Status do Servidor" )
 setElementData ( pages['home'].base_flappy, "tooltip-text", "Flappy Bird" )
 setElementData ( pages['home'].base_2048, "tooltip-text", "2048" )
 setElementData ( pages['home'].base_money, "tooltip-displaytext", false )
@@ -102,22 +102,22 @@ end
 -- SMS
 pages['sms'] = { }
 pages['sms'].grid = guiCreateGridList ( 4, 11, 257, 150, false, background )
-pages['sms'].search = guiCreateEdit ( 4, 161, 257, 30, "Search...", false, background )
+pages['sms'].search = guiCreateEdit ( 4, 161, 257, 30, "Procurar...", false, background )
 pages['sms'].messages = guiCreateMemo ( 4, 220, 257, 150, "", false, background )
-pages['sms'].message = guiCreateEdit ( 4, 376, 200, 30, "Message...", false, background )
-pages['sms'].send = guiCreateButton ( 207, 376, 52, 30, "Send", false, background )
+pages['sms'].message = guiCreateEdit ( 4, 376, 200, 30, "Menssagem...", false, background )
+pages['sms'].send = guiCreateButton ( 207, 376, 52, 30, "Enviar", false, background )
 pages['sms'].fromLast = nil
 pages['sms'].selectedPlayer = nil
 pages['sms'].sMessages = { }
 
-guiGridListAddColumn ( pages['sms'].grid, "Player", 0.9 )
+guiGridListAddColumn ( pages['sms'].grid, "Jogador", 0.9 )
 guiMemoSetReadOnly ( pages['sms'].messages, true )
 guiEditSetMaxLength ( pages['sms'].message, 300 )
 
 
 -- Bank
 pages['bank'] = { }
-pages['bank'].bank_balance = guiCreateMemo ( 4, 11, 255, 70, "Your bank balance is $0", false, background)
+pages['bank'].bank_balance = guiCreateMemo ( 4, 11, 255, 70, "Seu saldo no banco é $0", false, background)
 pages['bank'].bank_log = guiCreateGridList ( 4, 85, 255, 320, false, background)
 guiGridListAddColumn( pages['bank'].bank_log, "Log", 1.2 )
 guiGridListAddColumn( pages['bank'].bank_log, "Serial", 0.9 )
@@ -128,17 +128,17 @@ guiGridListSetSortingEnabled ( pages['bank'].bank_log, false )
 -- Music
 pages['music'] = { }
 pages['music'].grid = guiCreateGridList ( 4, 8, 257, 250, false, background )
-pages['music'].stop = guiCreateButton ( 87, 266, 80, 40, "Stop Music", false, background  )
-pages['music'].play = guiCreateButton ( 4, 266, 80, 40, "Play Music", false, background  )
-pages['music'].delete = guiCreateButton ( 170, 266, 88, 40, "Delete Station", false, background  )
-pages['music'].lbl1 = guiCreateLabel ( 4, 311, 50, 20, "Name:", false, background )
+pages['music'].stop = guiCreateButton ( 87, 266, 80, 40, "Parar Música", false, background  )
+pages['music'].play = guiCreateButton ( 4, 266, 80, 40, "Iniciar Música", false, background  )
+pages['music'].delete = guiCreateButton ( 170, 266, 88, 40, "Apagar Estação", false, background  )
+pages['music'].lbl1 = guiCreateLabel ( 4, 311, 50, 20, "Nome:", false, background )
 pages['music'].lbl2 = guiCreateLabel ( 4, 336, 50, 20, "URL:", false, background )
 pages['music'].add_name = guiCreateEdit ( 42, 311, 180, 20, "", false, background )
 pages['music'].add_url = guiCreateEdit ( 42, 336, 180, 20, "", false, background )
-pages['music'].add = guiCreateButton ( 87, 368, 138, 30, "Add Station", false, background )
+pages['music'].add = guiCreateButton ( 87, 368, 138, 30, "Adicionar Estação", false, background )
 pages['music'].sound = nil
 
-guiGridListAddColumn ( pages['music'].grid, "Name", 0.45 )
+guiGridListAddColumn ( pages['music'].grid, "Nome", 0.45 )
 guiGridListAddColumn ( pages['music'].grid, "URL", 0.45 )
 guiSetFont ( pages['music'].lbl1, "default-bold-small" )
 guiSetFont ( pages['music'].lbl2, "default-bold-small" )
@@ -152,32 +152,32 @@ pages['notes'].notes = guiCreateMemo ( 4, 11, 255, 400, "", false, background)
 -- send money
 pages['money'] = { }
 pages['money'].grid = guiCreateGridList ( 4, 11, 257, 250, false, background )
-pages['money'].search = guiCreateEdit ( 4, 261, 257, 30, "Search...", false, background )
-pages['money'].lbl1 = guiCreateLabel ( 8, 310, 40, 28, "Money:", false, background )
+pages['money'].search = guiCreateEdit ( 4, 261, 257, 30, "Procurar...", false, background )
+pages['money'].lbl1 = guiCreateLabel ( 8, 310, 40, 28, "Dinheiro:", false, background )
 pages['money'].amount = guiCreateEdit ( 8, 335, 150, 30, "", false, background )
-pages['money'].send = guiCreateButton ( 160, 335, 80, 30, "Send", false, background )
+pages['money'].send = guiCreateButton ( 160, 335, 80, 30, "Enviar", false, background )
 
-guiGridListAddColumn ( pages['money'].grid, "Player", 0.9 )
+guiGridListAddColumn ( pages['money'].grid, "Jogador", 0.9 )
 
 
 -- Vehicles
 pages['vehicles'] = { }
 pages['vehicles'].grid = guiCreateGridList ( 4, 11, 257, 330, false, background )
-pages['vehicles'].show = guiCreateButton ( 4, 350, 80, 25, "Show", false, background )
-pages['vehicles'].recover = guiCreateButton ( ((84+(261-80))/2 -40), 350, 80, 25, "Recover", false, background )
-pages['vehicles'].sell = guiCreateButton ( 261-80, 350, 80, 25, "Sell", false, background )
-pages['vehicles'].refresh = guiCreateButton ( 4, 383, 125, 25, "Refresh", false, background )
-pages['vehicles'].warptome = guiCreateButton ( 136, 383, 125, 25, "Warp to me", false, background )
+pages['vehicles'].show = guiCreateButton ( 4, 350, 80, 25, "Mostrar", false, background )
+pages['vehicles'].recover = guiCreateButton ( ((84+(261-80))/2 -40), 350, 80, 25, "Recuperar", false, background )
+pages['vehicles'].sell = guiCreateButton ( 261-80, 350, 80, 25, "Vender", false, background )
+pages['vehicles'].refresh = guiCreateButton ( 4, 383, 125, 25, "Atualizar", false, background )
+pages['vehicles'].warptome = guiCreateButton ( 136, 383, 125, 25, "Trazer para mim", false, background )
 
-guiGridListAddColumn ( pages['vehicles'].grid, "Vehicle", 0.9 )
+guiGridListAddColumn ( pages['vehicles'].grid, "Veículo", 0.9 )
 
 
 -- Waypoints
 pages['waypoints'] = { }
 pages['waypoints'].grid = guiCreateGridList ( 4, 11, 257, 330, false, background )
-pages['waypoints'].add_nameLbl = guiCreateLabel ( 4, 350, 257, 25, "Name:", false, background )
+pages['waypoints'].add_nameLbl = guiCreateLabel ( 4, 350, 257, 25, "Nome:", false, background )
 pages['waypoints'].add_name = guiCreateEdit ( 4, 375, 190, 25, "", false, background )
-pages['waypoints'].add = guiCreateButton ( 197, 375, 50, 25, "Add", false, background )
+pages['waypoints'].add = guiCreateButton ( 197, 375, 50, 25, "Adicionar", false, background )
 guiGridListAddColumn ( pages['waypoints'].grid, "", 0.9 )
 guiGridListSetSortingEnabled ( pages['waypoints'].grid, false )
 	
@@ -188,51 +188,51 @@ pages['settings'].scroll = guiCreateScrollPane ( 0, 0, 260, 400, false, backgrou
 local s = pages['settings'].scroll
 local UserSettings = { 
 	['Display'] = {
-		{ "UserSettings_UseCustomRadio", 			"Use custom radio HUD" 				},
-		{ "UserSettings_UseCustomHud", 				"Use custom zone name HUD" 			},
-		{ "usersettings_usecustomvehiclenames", 	"Use custom vehicle name HUD" 		},
-		{ "usersettings_usetopbar", 				"Toggle top-bar messages" 			},
-		{ "UserSettings_ShowSpeedMeter", 			"Toggle vehicle speed meter" 		},
-		{ "UserSettings_ShowSpeedGraph", 			"Toggle vehicle speed meter graph" 	},
-		{ "usersetting_display_vipchat", 			"Toggle VIP Chat (VIP Only)" 		},
-		{ "usersettings_display_clouds",			"Toggle Clouds"						},
-		{ "usersettings_display_clienttoserverstats","Show client-server stats"			},
+		{ "UserSettings_UseCustomRadio", 			"Usar o HUD personalizado do Rádio" 				},
+		{ "UserSettings_UseCustomHud", 				"Usar o HUD personalizado do nome da zona" 			},
+		{ "usersettings_usecustomvehiclenames", 	"Usar o HUD personalizado do nome do veículo" 		},
+		{ "usersettings_usetopbar", 				"Alternar mensagens da barra superior" 			},
+		{ "UserSettings_ShowSpeedMeter", 			"Alternar medidor de velocidade do veículo" 		},
+		{ "UserSettings_ShowSpeedGraph", 			"Alternar gráfico do medidor de velocidade do veículo" 	},
+		{ "usersetting_display_vipchat", 			"Alternar chat VIP (somente VIP)" 		},
+		{ "usersettings_display_clouds",			"Alternar nuvens"						},
+		{ "usersettings_display_clienttoserverstats","Mostrar estatísticas do servidor do cliente"			},
 	},
 	
 	['Blips'] = {
-		{ "usersetting_display_createfuelblips", 		"Fuel station blips" 			},
-		{ "usersetting_display_createpnsblips", 		"Pay n' Spray Station Blips" 	},
-		{ "usersetting_display_createammunationblips", 	"Ammu-nation Blips" 		   	},
-		{ "usersetting_display_clubblips", 				"Club Blips" 		  			},
-		{ "usersetting_display_skinshopblips", 			"Skin Shop Blips" 		  		},
-		{ "usersetting_display_hospitalblips", 			"Hospital Blips"				},
-		{ "usersetting_display_usershopblips", 			"User Shop Blips"				},
-		{ "usersetting_display_vehicleshopblips", 		"Vehicle Shop Blips"			},
-		{ "usersetting_display_gymblips",				"Gym Blips"						},
-		{ "usersetting_display_modshopblips",			"Modshop Blips"					},
-		{ "usersetting_display_usedvehicleshopblips",	"Use Vehicle Shop Blips"		},
+		{ "usersetting_display_createfuelblips", 		"Marcadores Postos de Gasolina" 			},
+		{ "usersetting_display_createpnsblips", 		"Marcadores Pay n' Spray Station" 	},
+		{ "usersetting_display_createammunationblips", 	"Marcadores loja de Armas (Ammu-nation)" 		   	},
+		{ "usersetting_display_clubblips", 				"Marcadores Clubs" 		  			},
+		{ "usersetting_display_skinshopblips", 			"Marcadores loja de Skins" 		  		},
+		{ "usersetting_display_hospitalblips", 			"Marcadores Hospital"				},
+		{ "usersetting_display_usershopblips", 			"Marcadores de Loja Shop "				},
+		{ "usersetting_display_vehicleshopblips", 		"Marcador de Concessionária"			},
+		{ "usersetting_display_gymblips",				"Marcador Ginástica"						},
+		{ "usersetting_display_modshopblips",			"Marcador ModShop"					},
+		{ "usersetting_display_usedvehicleshopblips",	"Marcadores de Loja de carros usados"		},
 	},
 		
 	['Notifications'] = {
-		{ "usersetting_notification_joinquitmessages", 		"Show join/quit messages" 	},
-		{ "usersetting_notification_nickchangemessages", 	"Show name change messages" },
-		{ "usersettings_showmoneylogs", 					"Toggle money messages"     },
-		{ "usersettings_display_lowfpswarning",				"Low FPS notifications"		},
+		{ "usersetting_notification_joinquitmessages", 		"Mostrar Mensagens Entrada / Saída" 	},
+		{ "usersetting_notification_nickchangemessages", 	"Mostrar mensagem de mudança de nomes" },
+		{ "usersettings_showmoneylogs", 					"Alternar mensagens de dinheiro"     },
+		{ "usersettings_display_lowfpswarning",				"Notificações de baixo FPS"		},
 	},
 		
 	['Shaders'] = {
 		{ "usersetting_shader_bloom", 				"Bloom" 			},
-		{ "usersetting_shader_contrast", 			"Contrast" 			},
-		{ "usersetting_shader_detail", 				"Detail" 			},
-		{ "usersetting_shader_skybox", 				"Skybox" 			},
-		{ "usersetting_shader_roadshine", 			"Road Shine" 		},
-		{ "usersetting_shader_vehiclereflections", 	"Vehicle Reflections"},
-		{ "usersetting_shader_water", 				"Water quality" 	},
-		{ "usersetting_shader_wetroad", 			"Wet Roads" 		},
+		{ "usersetting_shader_contrast", 			"Contraste" 			},
+		{ "usersetting_shader_detail", 				"Detalhe" 			},
+		{ "usersetting_shader_skybox", 				"Céu" 			},
+		{ "usersetting_shader_roadshine", 			"Brilho da estrada" 		},
+		{ "usersetting_shader_vehiclereflections", 	"Reflexo dos Veículos"},
+		{ "usersetting_shader_water", 				"Qualidade da Água" 	},
+		{ "usersetting_shader_wetroad", 			"Estradas molhadas" 		},
 	},
 		
 	['Others'] = {
-		{ "usersetting_misc_playsoundonguiclick", 	"Play sound when clicking GUI buttons" },
+		{ "usersetting_misc_playsoundonguiclick", 	"Tocar som ao clicar nos botões da Interface" },
 	}
 }
 
@@ -307,7 +307,7 @@ for i, v in pairs ( UserSettings ) do
 end
 
 local lastY = lastY + 45
-pages['settings'].btnSave = guiCreateButton ( 5, lastY+30, 250, 25, "Save", false, s )
+pages['settings'].btnSave = guiCreateButton ( 5, lastY+30, 250, 25, "Salvar", false, s )
 pages['settings'].btnDefault_Looks = guiCreateButton ( 5, lastY, 80, 25, "Looks", false, s )
 pages['settings'].btnDefault_Performance = guiCreateButton ( 90, lastY, 80, 25, "Performance", false, s )
 pages['settings'].btnDefault_Mix = guiCreateButton ( 175, lastY, 80, 25, "Mix", false, s )
@@ -323,13 +323,13 @@ function createStatusLabel ( x, y, w, h, t, r, p, x2, w2, t2 )
 end
 pages['stats'] = { }
 pages['stats'].scroll = guiCreateScrollPane ( 10, 10, 245, 400, false, background ) 
-pages['stats'].lbl1 = guiCreateLabel ( 10, 15, 200, 20, "User Statistics", false, pages['stats'].scroll )
-pages['stats']['user_account'] = createStatusLabel ( 20, 35, 230, 20, "Account:", false, pages['stats'].scroll, 100, 150 )
+pages['stats'].lbl1 = guiCreateLabel ( 10, 15, 200, 20, "Estatísticas do usuário", false, pages['stats'].scroll )
+pages['stats']['user_account'] = createStatusLabel ( 20, 35, 230, 20, "Conta:", false, pages['stats'].scroll, 100, 150 )
 pages['stats']['user_serial'] = createStatusLabel ( 20, 55, 230, 20, "Serial:", false, pages['stats'].scroll, 100, 150 )
 pages['stats']['user_ip'] = createStatusLabel ( 20, 75, 230, 20, "IP:", false, pages['stats'].scroll, 100, 150 )
-pages['stats']['user_kills'] = createStatusLabel ( 20, 95, 230, 20, "Kills:", false, pages['stats'].scroll, 100, 150 )
-pages['stats']['user_deaths'] = createStatusLabel ( 20, 115, 230, 20, "Deaths:", false, pages['stats'].scroll, 100, 150 )
-pages['stats'].lbl2 = guiCreateLabel ( 10, 155, 200, 20, "Weapon Statistics", false, pages['stats'].scroll )
+pages['stats']['user_kills'] = createStatusLabel ( 20, 95, 230, 20, "Abates:", false, pages['stats'].scroll, 100, 150 )
+pages['stats']['user_deaths'] = createStatusLabel ( 20, 115, 230, 20, "Mortes:", false, pages['stats'].scroll, 100, 150 )
+pages['stats'].lbl2 = guiCreateLabel ( 10, 155, 200, 20, "Estatísticas de Arma", false, pages['stats'].scroll )
 pages['stats']['weapon_9mm'] = createStatusLabel ( 20, 175, 230, 20, "9MM:", false, pages['stats'].scroll, 130, 85, "0/100" )
 pages['stats']['weapon_silenced'] = createStatusLabel ( 20, 195, 230, 20, "Silenced:", false, pages['stats'].scroll, 130, 85, "0/100" )
 pages['stats']['weapon_deagle'] = createStatusLabel ( 20, 215, 230, 20, "Deagle:", false, pages['stats'].scroll, 130, 85, "0/100" )
@@ -340,13 +340,13 @@ pages['stats']['weapon_mp5'] = createStatusLabel ( 20, 295, 230, 20, "MP5:", fal
 pages['stats']['weapon_ak47'] = createStatusLabel ( 20, 315, 230, 20, "AK47:", false, pages['stats'].scroll, 130, 85, "0/100" )
 pages['stats']['weapon_m4'] = createStatusLabel ( 20, 335, 230, 20, "M4:", false, pages['stats'].scroll, 130, 85, "0/100" )
 pages['stats']['weapon_sniper_rifle'] = createStatusLabel ( 20, 355, 230, 20, "Sniper Rifle:", false, pages['stats'].scroll, 130, 85, "0/100" )
-pages['stats'].lbl3 = guiCreateLabel ( 10, 395, 200, 20, "Server Statistics", false, pages['stats'].scroll )
-pages['stats']['server_mathEquation'] = createStatusLabel ( 20, 415, 230, 20, "Math Equation: ", false, pages['stats'].scroll, 130, 85 )
-pages['stats']['server_currentEvent'] = createStatusLabel ( 20, 435, 230, 20, "Current Event: ", false, pages['stats'].scroll, 130, 85 )
-pages['stats'].lbl4 = guiCreateLabel ( 10, 465, 200, 20, "VIP Statistics", false, pages['stats'].scroll )
+pages['stats'].lbl3 = guiCreateLabel ( 10, 395, 200, 20, "Estatísticas do Servidor", false, pages['stats'].scroll )
+pages['stats']['server_mathEquation'] = createStatusLabel ( 20, 415, 230, 20, "Equações Matemáticas: ", false, pages['stats'].scroll, 130, 85 )
+pages['stats']['server_currentEvent'] = createStatusLabel ( 20, 435, 230, 20, "Evento Atual: ", false, pages['stats'].scroll, 130, 85 )
+pages['stats'].lbl4 = guiCreateLabel ( 10, 465, 200, 20, "Estatísticas VIP", false, pages['stats'].scroll )
 pages['stats']['vip_vip'] = createStatusLabel ( 20, 485, 230, 20, "VIP: ", false, pages['stats'].scroll, 130, 85 )
-pages['stats']['vip_expDate'] = createStatusLabel ( 20, 505, 230, 20, "VIP Exp. Date: ", false, pages['stats'].scroll, 130, 85 )
-pages['stats']['server_netvippayout'] = createStatusLabel ( 20, 525, 230, 20, "Next VIP Payout: ", false, pages['stats'].scroll, 130, 85 )
+pages['stats']['vip_expDate'] = createStatusLabel ( 20, 505, 230, 20, "Data de Expiração do VIP: ", false, pages['stats'].scroll, 130, 85 )
+pages['stats']['server_netvippayout'] = createStatusLabel ( 20, 525, 230, 20, "Próximo pagamento VIP: ", false, pages['stats'].scroll, 130, 85 )
 guiSetFont ( pages['stats'].lbl1, "default-bold-small" )
 guiSetFont ( pages['stats'].lbl2, "default-bold-small" )
 guiSetFont ( pages['stats'].lbl3, "default-bold-small" )
@@ -358,9 +358,9 @@ pages['flappy'].lbl =  guiCreateLabel ( 10, 155, 200, 20, " ", false, background
 
 -- 2048
 pages['_2048'] = { }
-pages['_2048'].newGameButton = guiCreateButton(10, 322, 100, 30, "New Game", false, background)
-pages['_2048'].closeButton = guiCreateButton(120, 540, 100, 50, "Close", false, background)
-pages['_2048'].scoreLabel = guiCreateLabel(10, 362, 80, 50, "Score: 0", false, background)
+pages['_2048'].newGameButton = guiCreateButton(10, 322, 100, 30, "Novo Jogo", false, background)
+pages['_2048'].closeButton = guiCreateButton(120, 540, 100, 50, "Fechar", false, background)
+pages['_2048'].scoreLabel = guiCreateLabel(10, 362, 80, 50, "Pontuação: 0", false, background)
 pages['_2048'].gameState = guiCreateLabel(100, 250, 400, 200, "", false, background)
 guiSetProperty(pages['_2048'].gameState,"AlwaysOnTop","true")
 guiSetFont(pages['_2048'].gameState,"sa-gothic")
