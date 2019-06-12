@@ -1,76 +1,76 @@
 options2 = {  
 
-{ "Information", [[Hello, and welcome to Nerd Gaming. Nerd Gaming was started mid December, 2013. Nerd Gaming was created to make an all new type a server. The server is full of unique scripts, and they're all scripted by server staff. We don't use any community scripts, we make all of our own. The server was started by xXMADEXx and Chronic.
+{ "Informação", [[Olá, e seja bem vindo ao servidor da Sinuquinha de Domingo, idealizado em junho, 2019.  O server foi criado por: xXMADEXx and Chronic (NerdGaming), Modificado por Hashorama e traduzido pelo xXFepeXx.
 
 Website: None]] },
 
 
 
-{ "Commands", [[
-Nerd Gaming commands!
+{ "Comandos", [[
+Comandos da Sinuquinha !
 
-/report: Report an issue, bug, or player 
-/updates: View a list of server updates 
-/getpos [=yes/no]: Get your position, copies to clipboard
-/LocalChat [msg]: Outputs a message to nearby players
-/r [msg]: Outputs a message to law-enforcement chat
-/joinevent: Join a pending event
-/leaveevent: Leave an event that you are in
-/eventhelp: Display event commands with information
-/glue: Glue yourself to a vehicle
-/unglue: Unglue yourself from a vehicle
-/gc: Display a message to your group members
-/resign: Quit your job
-/net: View your net as a fisherman
-/release [player]: Release a player that you have arrested
-/peak: View the server peak
-/re [msg], /reply [msg]: Reply to the last person that messaged you via the phone
-/kill: Kill yourself
-/eject [player]: Eject a player from your vehicle
-/result [answer]: Answer a pending math question
-/playtime: Display your play time in minutes
-/punishments: View a panel with your punishmetns by account or serial
-/lock: Lock your vehicle that is nearest to you
-/cc [msg]: Send a message to people in a vehicle with your
-/hideall: Hide all your visible vehicles
-/reload: Reload your weapon
-/ngdownload: Copy NG GitHub link to clipboard
-/ngver: View NG server version
+/report: Reporte um problema, bug, ou player. 
+/updates: Veja a lista de atualizações do server. 
+/getpos [=yes/no]: Consiga sua posição, copia para o área de transferência (ctrl+c)
+/LocalChat [msg]: envia uma mensagem a jogadores proximos.
+/r [msg]: Envia uma mensagem direta*
+/joinevent: Entra em um evento pendente.
+/leaveevent: Sai do evento que você está.
+/eventhelp: Mostra comandos do evento com informação.
+/glue: Gruda você à um veículo.
+/unglue: Desgruda você de um veículo.
+/gc: Envia uma mensagem para o seu grupo.
+/resign: Sai do emprego.
+/net: Vê sua rede de pesca (pescador).
+/release [player]: Libera um jogador que você prendeu (policial).
+/peak: Veja o pico de úsuarios que o servidor alcançou.
+/re [msg], /reply [msg]:  Responde a última pessoa que mandou mensagem pelo telefone.
+/kill: Mata o seu personagem.
+/eject [player]: Expulsa um jogador do seu veículo.
+/result [answer]: Responder uma pergunta pendente de matemática.
+/playtime: Mostra a quantidade de tempo jogado no servidor (em minutos).
+/punishments: Mostra um painel com suas punições da conta ou serial.
+/lock: Tranca seu veículo que está proximo a você.
+/cc [msg]: Envia uma mensagem para pessoas que estão no carro com você.
+/hideall: Esconda todos os seus carros visíveis.
+/reload: Recarrega sua arma.
 
--VIP Only-
-/vipchat [message] - Talk in the VIP chat
-/laser - Enable/Disable laser
-/lasercolor - Change your laser color]] },
 
-{ "Binds", 
+
+-Somente VIP-
+/vipchat [message] - Fala no chat VIP.
+/laser - Ativa/Desativa o laser.
+/lasercolor - Muda a cor do laser.]] },
+
+{ "Teclas", 
 [[Nerd Gaming Binds
-F1 - Display this panel
-F2 - Grouping system
-F3 - User Phone
-F6 - User Inventory
-F8 - Server console
-F11 - San Andreas Map
-F12 - Screenshot
-C - Enable/Disable cruise control in vehicles (you must be the driver)
+F1 - Mostra esse painel.
+F2 - Sistema de grupo.
+F3 - Seu telefone.
+F6 - Seu inventário.
+F8 - Server console.
+F11 - Mapa de San Andreas.
+F12 - Captura de tela.
+C -  Ativa/Desativa o modo cruzeiro em veículos (Você tem que ser o motorista).
 
-Default MTA Binds
-F8/`- Open console  
-F11 - View map  
-F12 - Take screen shot (SS) (Saves in %mta directory%/screenshots)]]},
+Teclas padrões do Mta
+F8/`- Abre o console  
+F11 - Vê o mapa.  
+F12 - Captura de tela (SS) (Saves in %mta directory%/screenshots)]]},
 
 
 
-{ "Rules",
-[[Please read and respect all of the rules.
+{ "Regras",
+[[Porfavor leia e respeite todas as regras.
 
-1. Deathmatch (DM) in Los Santos is forbidden;
-2. You must respect all players and staff - no flaming/insulting;
-3. Distribution of accounts is forbidden, you're not allowed to share your account information;
-4. Time farming/camping is not allowed;
-5. No advertising anything outside of NG:RPG;
-6. If you get DM'ed, don't complain to staff-report on forum;
-7. No asking for admin/staff;
-8. Bug abusing is forbidden;]] },
+1. Matar jogadores em Los Santos é proibido;
+2. Você deve respeitar todos os jogadores e membros da staff;
+3. Compartilhamento e venda de conta é proibido;
+4. Farmar tempo de jogo e camperar é proibido;
+5. Não divulgue nada de outros servidores;
+6. Se quiser reclamar de algo envie sua mensagem no discord juntamente com print;
+7. Não peça admin/staff;
+8. Exploit(abusar de falhas no sistema) é proibido;]] },
 
 
 
