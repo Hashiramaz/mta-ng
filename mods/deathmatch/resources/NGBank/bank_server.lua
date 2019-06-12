@@ -129,29 +129,29 @@ addEvent ( "NGBank:ModifyAccount", true )
 addEventHandler ( "NGBank:ModifyAccount", root, function ( action, amount )
 	local acc = getPlayerAccount ( source )
 	if ( isGuestAccount ( acc ) ) then
-		return exports['NGMessages']:sendClientMessage ( "Please login to use the bank system.", source, 200, 200, 200 )
+		return exports['NGMessages']:sendClientMessage ( "Por favor, faça o login para usar o sistema bancário.", source, 200, 200, 200 )
 	end
 	
 	local acc = getAccountName ( acc )
 	local bankBalance = accounts[acc]
 	if ( action == 'withdraw' ) then
 		if ( bankBalance < amount ) then
-			return exports['NGMessages']:sendClientMessage ( "You don't have that much money in your bank account.", source, 200, 200, 200 )
+			return exports['NGMessages']:sendClientMessage ( "Você não tem muito dinheiro em sua conta bancária.", source, 200, 200, 200 )
 		end
 		accounts[acc] = accounts[acc] - amount
 		givePlayerMoney ( source, amount )
-		exports['NGMessages']:sendClientMessage ( "You've withdrawn $"..tostring ( amount ).." from your bank account", source, 200, 200, 200 )
-		exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." deposited $"..tostring(amount).." into his bank. (Total: $"..accounts[acc]..")" )
+		exports['NGMessages']:sendClientMessage ( "Você retirou $"..tostring ( amount ).." da sua conta bancária", source, 200, 200, 200 )
+		exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." depositou $"..tostring(amount).." em seu banco. (Total: $"..accounts[acc]..")" )
 		lg = getPlayerName ( source ).." withdrew $"..amount
 	elseif ( action == 'deposit' ) then
 		if ( amount > getPlayerMoney ( source ) ) then
-			return exports['NGMessages']:sendClientMessage ( "You don't have that much money.", source, 200, 200, 200 )
+			return exports['NGMessages']:sendClientMessage ( "Você não tem muito dinheiro em sua conta bancária.", source, 200, 200, 200 )
 		end
 		accounts[acc] = bankBalance + amount
 		takePlayerMoney ( source, amount ) 
-		exports['NGMessages']:sendClientMessage ( "You've deposited $"..tostring ( amount ).." into your bank account.", source, 200, 200, 200 )
-		exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." deposited $"..tostring(amount).." into his bank. (Total: $"..accounts[acc]..")" )
-		lg = getPlayerName ( source ).." deposited $"..amount
+		exports['NGMessages']:sendClientMessage ( "Você depositou $"..tostring ( amount ).." em sua conta bancária.", source, 200, 200, 200 )
+		exports['NGLogs']:outputActionLog ( getPlayerName ( source ).." depositou $"..tostring(amount).." nesse banco. (Total: $"..accounts[acc]..")" )
+		lg = getPlayerName ( source ).." depositou $"..amount
 	end
 	setElementData ( source, "NGBank:BankBalance", accounts[acc] ) 
 	triggerClientEvent ( source, "NGBanks:resfreshBankData", source, accounts[acc] )
