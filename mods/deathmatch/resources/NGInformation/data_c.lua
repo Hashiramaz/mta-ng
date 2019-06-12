@@ -35,15 +35,13 @@ Comandos da Sinuquinha !
 /hideall: Esconda todos os seus carros visíveis.
 /reload: Recarrega sua arma.
 
-
-
 -Somente VIP-
 /vipchat [message] - Fala no chat VIP.
 /laser - Ativa/Desativa o laser.
 /lasercolor - Muda a cor do laser.]] },
 
 { "Teclas", 
-[[Nerd Gaming Binds
+[[Teclas Servidor da Sinuquinha
 F1 - Mostra esse painel.
 F2 - Sistema de grupo.
 F3 - Seu telefone.
@@ -61,7 +59,7 @@ F12 - Captura de tela (SS) (Saves in %mta directory%/screenshots)]]},
 
 
 { "Regras",
-[[Porfavor leia e respeite todas as regras.
+[[Por favor leia e respeite todas as regras.
 
 1. Matar jogadores em Los Santos é proibido;
 2. Você deve respeitar todos os jogadores e membros da staff;

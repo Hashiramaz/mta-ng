@@ -7,7 +7,7 @@ function makeGui ( )
 
 	im2 = GuiStaticImage.create ( 0, 0, sx_, sy_, ":NGlogin/files/back.png", false, nil)
 
-	window = GuiWindow.create((sx_/2-(sx*710)/2), (sy_/2-(sy*479)/2), sx*710, sy*479, "Nerd Gaming Help", false)
+	window = GuiWindow.create((sx_/2-(sx*710)/2), (sy_/2-(sy*479)/2), sx*710, sy*479, "Ajuda Sinuquinha de Domingo", false)
 	window.sizable  = false;
 	window.movable = false;
 	window.alpha = 0.95;
