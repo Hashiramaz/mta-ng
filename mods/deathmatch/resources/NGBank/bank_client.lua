@@ -108,7 +108,7 @@ function bankClicking ( )
 						killTimer ( progressTimer )
 					end
 					setAllEnabled ( true )
-					guiSetText ( bank.label[6], "Processo Completo" )
+					guiSetText ( bank.label[6], "Processo Completo." )
 					
 					local mode = nil
 					if ( guiRadioButtonGetSelected ( bank.radio['deposit'] ) ) then
