@@ -508,6 +508,7 @@
         <right name="function.aclGroupAddObject" access="true"></right>
         <right name="function.aclGroupRemoveObject" access="true"></right>
         <right name="function.refreshResources" access="true"></right>
+        <right name="command.refreshall" access="true"></right>
         <right name="function.setServerConfigSetting" access="true"></right>
         <right name="function.updateResourceACLRequest" access="true"></right>
         <right name="command.aclrequest" access="true"></right>
