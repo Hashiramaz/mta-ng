@@ -1,17 +1,15 @@
 local messages = { 
-	"Enjoy your stay here at Nerd Gaming RPG!",
-	"If you find a bug, please use our in-game report system, /report.",
-	"If you're bugged, please try reconnecting before asking staff",
-	"If you get DM'ed, our staff won't do anything (unless they see it) -- report it on forum",
-	"Have a suggestion? Tell us about it on the forum! We'll be glad to hear it.",
-	"Use F3 -> Settings to customize your gameplay",
-	"Want to help us and get rich? Donate!",
-	"Use F3 -> Music to listen to epic tunes while you crash into walls",
-	"Please be sure to read F1 before taking any gameplay",
-	"Don't ask for money, it's very annoying!!",
-	"If your gameplay has lag, try changing your settings to performance mode in F3 -> Settings",
-	"Use the bank to save your cash",
-	"Don't even think of hacking! We can check all your stats (: "
+	"Aproveite o a sua estadia aqui no Servidor de Roleplay da Sinuquinha!",
+	"Se você encontrou um bug, Por favor use o nosso sistema de reporte em jogo /report.",
+	"Se você bugou, por favor tente reentrar antes de chamar um adm",
+	"Tem alguma sugestão? Nos informe em nosso servidor do discord! Nos ficaremos felizes em receber suas sugestões.",
+	"Use F3 -> Settings para configurar da maneira que lhe agrade.",
+	"Use F3 -> Music para escutar músicas épicas enquanto bate em paredes.",
+	"Por favor certifique-se que tudo no F1 foi lido antes de jogar",
+	"Não peça dinheiro, É um pouco chato!!",
+	"Se você tiver lag, tente mudar as configurações de performance no F3 -> Settings",
+	"Utilize o banco para guardar dinheiro",
+	"Nem pense em usar alguma trapaça! Nos podemos checar todos os seus status (: "
 }
 
 local lastI = 0

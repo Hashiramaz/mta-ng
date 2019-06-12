@@ -21,19 +21,19 @@ local bank = {
     label = {}
 }
 local sx, sy = guiGetScreenSize ( )
-bank['window'] = guiCreateWindow( ( sx / 2 - 446 / 2 ), ( sy / 2 - 363 / 2 ), 446, 363, "Bank Account - N/A", false)
+bank['window'] = guiCreateWindow( ( sx / 2 - 446 / 2 ), ( sy / 2 - 363 / 2 ), 446, 363, "Conta do Banco - N/A", false)
 bank['amount'] = guiCreateEdit(9, 239, 214, 23, "", false, bank['window'])
 bank['progress'] = guiCreateProgressBar(233, 236, 203, 26, false, bank['window'])
 bank.label[1] = guiCreateLabel(0, 25, 446, 49, string.rep ( "_", 85 ).."\nUser Information\n"..string.rep ( "_", 85 ), false, bank['window'])
-bank.label[2] = guiCreateLabel(10, 84, 213, 20, "Account Name: N/A", false, bank['window'])
-bank.label[3] = guiCreateLabel(10, 114, 213, 20, "Account Balance: $0", false, bank['window'])
+bank.label[2] = guiCreateLabel(10, 84, 213, 20, "Nome da conta: N/A", false, bank['window'])
+bank.label[3] = guiCreateLabel(10, 114, 213, 20, "Saldo da conta: $0", false, bank['window'])
 bank.label[4] = guiCreateLabel(0, 159, 446, 49, string.rep ( "_", 85 ).."\nUser Actions\n"..string.rep ( "_", 85 ), false, bank['window'])
-bank.label[5] = guiCreateLabel(10, 218, 81, 19, "Amount:", false, bank['window'])
-bank.label[6] = guiCreateLabel(0, 3, 203, 18, "Processing Request...", false, bank['progress'])
-bank.radio['deposit'] = guiCreateRadioButton(9, 272, 101, 20, "Deposit", false, bank['window'])
-bank.radio['withdraw'] = guiCreateRadioButton(110, 272, 113, 20, "Withdraw", false, bank['window'])
-bank.button['go'] = guiCreateButton(233, 272, 203, 30, "Continue With Request", false, bank['window'])
-bank.button['exit'] = guiCreateButton(233, 312, 203, 30, "Exit Bank", false, bank['window'])
+bank.label[5] = guiCreateLabel(10, 218, 81, 19, "Quantia:", false, bank['window'])
+bank.label[6] = guiCreateLabel(0, 3, 203, 18, "Processando solicitação...", false, bank['progress'])
+bank.radio['deposit'] = guiCreateRadioButton(9, 272, 101, 20, "Deposito", false, bank['window'])
+bank.radio['withdraw'] = guiCreateRadioButton(110, 272, 113, 20, "Saque", false, bank['window'])
+bank.button['go'] = guiCreateButton(233, 272, 203, 30, "Continue com a solicitação", false, bank['window'])
+bank.button['exit'] = guiCreateButton(233, 312, 203, 30, "Sair do banco", false, bank['window'])
 
 guiSetVisible ( bank['window'], false )
 guiSetVisible ( bank['progress'], false )
@@ -55,11 +55,11 @@ account = nil
 addEvent ( "NGBank:onClientEnterBank", true )
 addEventHandler ( "NGBank:onClientEnterBank", root, function ( money, account, marker )
 	guiSetVisible ( bank['window'], true )
-	guiSetText ( bank['window'], "Bank Account - ".. tostring ( account ) )
+	guiSetText ( bank['window'], "Conta do banco - ".. tostring ( account ) )
 	guiSetText ( bank['amount'], "" )
-	guiSetText ( bank.label[2], "Account Name: "..tostring ( account ) )
-	guiSetText ( bank.label[3], "Account Balance: $"..convertNumber ( money ) )
-	guiSetText ( bank.label[6], "Processing - 0%" )
+	guiSetText ( bank.label[2], "Nome da conta: "..tostring ( account ) )
+	guiSetText ( bank.label[3], "Saldo da conta: $"..convertNumber ( money ) )
+	guiSetText ( bank.label[6], "Processando - 0%" )
 	guiProgressBarSetProgress ( bank['progress'], 0 )
 	
 	ClientMarker = marker
@@ -72,13 +72,13 @@ addEventHandler ( "NGBank:onClientEnterBank", root, function ( money, account, m
 end )
 
 function CloseBankWindow ( )
-	guiSetText ( bank['window'], "Bank Account - ".. tostring ( account ) )
+	guiSetText ( bank['window'], "Nome da conta - ".. tostring ( account ) )
 	guiSetVisible ( bank['window'], false )
 	guiSetVisible ( bank['progress'], false )
 	guiSetText ( bank['amount'], "" )
-	guiSetText ( bank.label[2], "Account Name: N/A" )
-	guiSetText ( bank.label[3], "Account Balance: $0" )
-	guiSetText ( bank.label[6], "Processing - 0%" )
+	guiSetText ( bank.label[2], "Nome da conta: N/A" )
+	guiSetText ( bank.label[3], "Saldo: $0" )
+	guiSetText ( bank.label[6], "Processando - 0%" )
 	guiProgressBarSetProgress ( bank['progress'], 0 )
 	removeEventHandler ( "onClientMarkerLeave", ClientMarker, CloseWindow_Marker )
 	ClientMarker = nil
@@ -102,13 +102,13 @@ function bankClicking ( )
 			guiProgressBarSetProgress ( bank['progress'], 0 )
 			progressTimer = setTimer ( function ( )
 				guiProgressBarSetProgress ( bank['progress'], guiProgressBarGetProgress ( bank['progress'] ) + 2 )
-				guiSetText ( bank.label[6], "Processing - "..tostring ( guiProgressBarGetProgress ( bank['progress'] ) ).."%" )
+				guiSetText ( bank.label[6], "Processando - "..tostring ( guiProgressBarGetProgress ( bank['progress'] ) ).."%" )
 				if ( guiProgressBarGetProgress ( bank['progress'] ) >= 100 and guiGetVisible ( bank['window'] ) ) then
 					if ( isTimer ( progressTimer ) ) then
 						killTimer ( progressTimer )
 					end
 					setAllEnabled ( true )
-					guiSetText ( bank.label[6], "Process Complete" )
+					guiSetText ( bank.label[6], "Processo Completo." )
 					
 					local mode = nil
 					if ( guiRadioButtonGetSelected ( bank.radio['deposit'] ) ) then
@@ -122,13 +122,13 @@ function bankClicking ( )
 						if ( not isTimer ( progressTimer ) ) then
 							guiProgressBarSetProgress ( bank['progress'], 0 )
 							guiSetVisible ( bank['progress'], false )
-							guiSetText ( bank.label[6], "Processing - 0%" )
+							guiSetText ( bank.label[6], "Processando - 0%" )
 						end
 					end, 2500, 1 )
 				end
 			end, 60+math.random ( -10, 80 ), 100 )
 		else
-			exports['NGMessages']:sendClientMessage ( "Please enter an amount", 200, 200, 200 )
+			exports['NGMessages']:sendClientMessage ( "Por favor insira uma quantia", 200, 200, 200 )
 		end
 	end
 end
@@ -157,7 +157,7 @@ end
 
 addEvent ( "NGBanks:resfreshBankData", true )
 addEventHandler ( "NGBanks:resfreshBankData", root, function ( amount ) 
-	guiSetText ( bank.label[3], "Account Balance: $"..convertNumber ( amount ) )
+	guiSetText ( bank.label[3], "Saldo da conta: $"..convertNumber ( amount ) )
 end )
 
 function convertNumber ( number )  
