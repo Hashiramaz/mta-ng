@@ -73,7 +73,7 @@ pages['home'].base_2048 = guiCreateStaticImage ( 5, 5+margin_y*2, appSize, appSi
 setElementData ( pages['home'].base_money, "tooltip-text", "PayPal" )
 setElementData ( pages['home'].base_sms, "tooltip-text", "SMS" )
 setElementData ( pages['home'].base_bank, "tooltip-text", "Banco" )
-setElementData ( pages['home'].base_music, "tooltip-text", "Música" )
+setElementData ( pages['home'].base_music, "tooltip-text", "Spotify" )
 setElementData ( pages['home'].base_notes, "tooltip-text", "Notas" )
 setElementData ( pages['home'].base_waypoints, "tooltip-text", "GPS" )
 setElementData ( pages['home'].base_vehicles, "tooltip-text", "Veículos" )
