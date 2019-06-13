@@ -6,13 +6,13 @@ function openBanWindow ( acc )
 	
 	Ban.window = guiCreateWindow((sx/2-250/2), (sy/2-270/2), 250, 270, "Ban Account", false)
 	guiWindowSetSizable(Ban.window, false )
-	Ban.account = guiCreateLabel(20, 37, 315, 23, "Ban Account: "..tostring(acc), false, Ban.window)
-	Ban.misc_1 = guiCreateLabel(19, 102, 75, 22, "Unban Day:", false, Ban.window)
-    Ban.misc_2 = guiCreateLabel(19, 134, 82, 22, "Unban Month:", false, Ban.window)
-	Ban.misc_3 = guiCreateLabel(19, 166, 82, 22, "Unban Year:", false, Ban.window)
-	Ban.misc_4 = guiCreateLabel(19, 198, 82, 22, "Reason:", false, Ban.window)
-	Ban.cancel = guiCreateButton(19, 230, 82, 33, "Cancel", false, Ban.window)
-	Ban.ban = guiCreateButton(106, 230, 82, 33, "Ban", false, Ban.window) 
+	Ban.account = guiCreateLabel(20, 37, 315, 23, "Conta banida: "..tostring(acc), false, Ban.window)
+	Ban.misc_1 = guiCreateLabel(19, 102, 75, 22, "Dia de desbanimento:", false, Ban.window)
+    Ban.misc_2 = guiCreateLabel(19, 134, 82, 22, "Mês de desbanimento:", false, Ban.window)
+	Ban.misc_3 = guiCreateLabel(19, 166, 82, 22, "Ano de desbanimento:", false, Ban.window)
+	Ban.misc_4 = guiCreateLabel(19, 198, 82, 22, "Motivo:", false, Ban.window)
+	Ban.cancel = guiCreateButton(19, 230, 82, 33, "Cancelar", false, Ban.window)
+	Ban.ban = guiCreateButton(106, 230, 82, 33, "Banimento", false, Ban.window) 
 	Ban.reason = guiCreateEdit(111, 201, 120, 25, "", false, Ban.window)
 	
 	local d = getRealTime ( )
@@ -25,7 +25,7 @@ function openBanWindow ( acc )
 		month = guiGetText(Ban.unbanMonth),
 		year = guiGetText(Ban.unbanYear)
 	}
-	Ban.unbanLabel = guiCreateLabel(19, 61, 316, 22, "Unban Date: "..table.concat({guiGetText(Ban.unbanDay),guiGetText(Ban.unbanMonth),guiGetText(Ban.unbanYear)},"/").." ("..getDaysToDate(data)..")", false, Ban.window)
+	Ban.unbanLabel = guiCreateLabel(19, 61, 316, 22, "Data de desbanimento: "..table.concat({guiGetText(Ban.unbanDay),guiGetText(Ban.unbanMonth),guiGetText(Ban.unbanYear)},"/").." ("..getDaysToDate(data)..")", false, Ban.window)
 	
 	addEventHandler ( "onClientGUIClick", Ban.ban, onClientBanButtonClick )
 	addEventHandler ( "onClientGUIClick", Ban.cancel, onClientBanButtonClick )
@@ -68,7 +68,7 @@ function onClientBanButtonClick ( )
 		
 		local days = getDaysToDate ( data )
 		if ( days:sub ( 0, 1 ) == "-" ) then -- check if date is passed
-			return outputChatBox ( "Invalid date; This date is already passed" )
+			return outputChatBox ( "Data inválida; A data informada já passou" )
 		end
 
 		triggerServerEvent ( "NGAdmin:Modules->Banner:onAdminBanClient", localPlayer, account, tonumber(data.day), tonumber(data.month), tonumber(data.year), guiGetText ( Ban.reason ), days )
@@ -98,7 +98,7 @@ function onClientBanEditEdit ( )
 		year = guiGetText(Ban.unbanYear)
 	}
 	local fDate = table.concat({guiGetText(Ban.unbanDay),guiGetText(Ban.unbanMonth),guiGetText(Ban.unbanYear)},"/")
-	guiSetText ( Ban.unbanLabel, "Unban Date: "..fDate.." ("..getDaysToDate(data)..")" )
+	guiSetText ( Ban.unbanLabel, "Data de desbanimento: "..fDate.." ("..getDaysToDate(data)..")" )
 end
 
 
