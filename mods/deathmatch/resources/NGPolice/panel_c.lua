@@ -52,8 +52,8 @@ function openPoliceWindow ( )
 		return
 	end
 	
-	local j = tostring ( getElementData ( localPlayer, "Emprego" ) ):lower ( )
-	if ( j ~= "Policial" and j ~= "Detetive" ) then
+	local j = tostring ( getElementData ( localPlayer, "Job" ) ):lower ( )
+	if ( j ~= "Policial" and j ~= "detective" ) then
 		return
 	end
 	
