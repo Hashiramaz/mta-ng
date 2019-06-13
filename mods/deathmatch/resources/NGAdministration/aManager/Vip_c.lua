@@ -4,15 +4,15 @@ function openVipEditWindow ( acc )
 		account = acc
 	}
 	
-	Vip.window = guiCreateWindow((sx/2-250/2), (sy/2-270/2), 250, 270, "VIP Manager", false)
+	Vip.window = guiCreateWindow((sx/2-250/2), (sy/2-270/2), 250, 270, "Gerenciador de VIP", false)
 	guiWindowSetSizable(Vip.window, false )
-	Vip.account = guiCreateLabel(20, 37, 315, 23, "Account: "..tostring(acc), false, Vip.window)
-	Vip.misc_1 = guiCreateLabel(19, 102, 75, 22, "Exp. Day:", false, Vip.window)
-    Vip.misc_2 = guiCreateLabel(19, 134, 82, 22, "Exp. Month:", false, Vip.window)
-	Vip.misc_3 = guiCreateLabel(19, 166, 82, 22, "Exp. Year:", false, Vip.window)
-	Vip.misc_4 = guiCreateLabel(19, 198, 82, 22, "Level:", false, Vip.window)
-	Vip.cancel = guiCreateButton(19, 230, 82, 33, "Cancel", false, Vip.window)
-	Vip.update = guiCreateButton(106, 230, 82, 33, "Update VIP", false, Vip.window) 
+	Vip.account = guiCreateLabel(20, 37, 315, 23, "Conta: "..tostring(acc), false, Vip.window)
+	Vip.misc_1 = guiCreateLabel(19, 102, 75, 22, "Exp. Dia:", false, Vip.window)
+    Vip.misc_2 = guiCreateLabel(19, 134, 82, 22, "Exp. Mês:", false, Vip.window)
+	Vip.misc_3 = guiCreateLabel(19, 166, 82, 22, "Exp. Ano:", false, Vip.window)
+	Vip.misc_4 = guiCreateLabel(19, 198, 82, 22, "Nível:", false, Vip.window)
+	Vip.cancel = guiCreateButton(19, 230, 82, 33, "Cancelar", false, Vip.window)
+	Vip.update = guiCreateButton(106, 230, 82, 33, "Atualizar VIP", false, Vip.window) 
 	Vip.level = guiCreateButton(111, 201, 120, 25, "Bronze", false, Vip.window)
 	
 	local d = getRealTime ( )
@@ -25,7 +25,7 @@ function openVipEditWindow ( acc )
 		month = guiGetText(Vip.expMonth),
 		year = guiGetText(Vip.expYear)
 	}
-	Vip.expLabel = guiCreateLabel(19, 61, 316, 22, "Expiration Date: "..table.concat({guiGetText(Vip.expDay),guiGetText(Vip.expMonth),guiGetText(Vip.expYear)},"/").." ("..getDaysToDate(data)..")", false, Vip.window)
+	Vip.expLabel = guiCreateLabel(19, 61, 316, 22, "Data de expiração: "..table.concat({guiGetText(Vip.expDay),guiGetText(Vip.expMonth),guiGetText(Vip.expYear)},"/").." ("..getDaysToDate(data)..")", false, Vip.window)
 	
 	addEventHandler ( "onClientGUIClick", Vip.update, onClientVipButtonClick )
 	addEventHandler ( "onClientGUIClick", Vip.cancel, onClientVipButtonClick )
@@ -69,7 +69,7 @@ function onClientVipButtonClick ( )
 		local month = tonumber ( Vip.expMonth.text)
 		local year = tonumber ( Vip.expYear.text )
 		if ( not day or not month or not year ) then
-			return exports.ngmessages:sendClientMessage ( "Invalid date provided.", 255, 0, 0 )
+			return exports.ngmessages:sendClientMessage ( "Data inválida fornecida.", 255, 0, 0 )
 		end
 
 		triggerServerEvent ( "NGAdmin->Modules->aManager->VIPManager->UpdateAccountVIP", localPlayer, VipDetails.account, Vip.level.text, day, month, year )
@@ -99,5 +99,5 @@ function onClientVipEditChanged ( )
 		year = guiGetText(Vip.expYear)
 	}
 	local fDate = table.concat({guiGetText(Vip.expDay),guiGetText(Vip.expMonth),guiGetText(Vip.expYear)},"/")
-	guiSetText ( Vip.expLabel, "Expiration Date: "..fDate.." ("..getDaysToDate(data)..")" )
+	guiSetText ( Vip.expLabel, "Data de expiração: "..fDate.." ("..getDaysToDate(data)..")" )
 end

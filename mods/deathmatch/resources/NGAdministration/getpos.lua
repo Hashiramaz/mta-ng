@@ -8,7 +8,7 @@ addCommandHandler ( 'getpos', function ( _, round )
 		pos = table.concat ( { x, y, z }, ', ' )
 	end
 	
-	outputChatBox ( "Coordinates: "..pos.." (Copied!)", 255, 255, 0 )
+	outputChatBox ( "Coordenadas: "..pos.." (Copiado!)", 255, 255, 0 )
 	setClipboard ( pos )
 	
 end )
