@@ -10,7 +10,7 @@ function amOpenWindow ( p )
 				accounts.valid[ tostring ( v.Username ) ] = v
 			else
 				accounts.invalid[ v.Username] = v
-				accounts.invalid[ v.Username].reason = "Account doesn't exist in server database"
+				accounts.invalid[ v.Username].reason = "Conta não existe no banco de dados do server."
 			end
 		end
 		for i, v in ipairs ( getAccounts ( ) ) do
@@ -18,7 +18,7 @@ function amOpenWindow ( p )
 			if ( not accounts.valid [n] and not accounts.invalid[n] ) then
 				accounts.invalid[n] = { }
 				accounts.invalid[n].Username = n
-				accounts.invalid[n].reason = "Account doesn't exist in MySQL database"
+				accounts.invalid[n].reason = "Conta não existe na base de dados do MySQL."
 			end
 		end
 		triggerClientEvent ( p, "NGAdministration:AccountManager:onClientOpenWindow", p, accounts )
@@ -32,7 +32,7 @@ addEvent ( "NGAdmin:amManager:removeAccountFromHistory", true )
 addEventHandler ( "NGAdmin:amManager:removeAccountFromHistory", root, function ( account )
 	for i, v in ipairs ( getElementsByType ( "player" ) ) do
 		if ( getAccountName ( getPlayerAccount ( v ) ) == account ) then
-			return exports.NGMessages:sendClientMessage ( "You need to kick "..tostring(getPlayerName(v)).." before you can delete this account.", source, 255, 255, 0 )
+			return exports.NGMessages:sendClientMessage ( "Você precisa expulsar "..tostring(getPlayerName(v)).." para depois conseguir deletar essa conta.", source, 255, 255, 0 )
 		end
 		removeAccount(account,source)
 	end
@@ -79,7 +79,7 @@ end )
 -- Ban accounts
 addEvent ( "NGAdmin:Modules->Banner:onAdminBanClient", true )
 addEventHandler ( "NGAdmin:Modules->Banner:onAdminBanClient", root, function ( acc, day, month, year, reason, days )
-	local l = getPlayerName(source).." ("..getAccountName(getPlayerAccount(source)).." banned account "..tostring(acc).." for "..tostring(days).." days | reason: "..tostring(reason)
+	local l = getPlayerName(source).." ("..getAccountName(getPlayerAccount(source)).." conta banida "..tostring(acc).." por "..tostring(days).." dias | motivo: "..tostring(reason)
 	outputDebugString ( l )
 	exports.NGLogs:outputServerLog ( l )
 	exports.NGLogs:outputActionLog ( l )
@@ -93,7 +93,7 @@ addEventHandler ( "NGAdmin->Modules->aManager->VIPManager->UpdateAccountVIP", ro
 	for i, v in pairs ( getElementsByType ( "player" ) ) do
 		local a = getPlayerAccount ( v )
 		if ( not isGuestAccount ( a ) and getAccountName ( a ) == account ) then
-			kickPlayer ( v, "Server is giving you VIP... Please reconnect." )
+			kickPlayer ( v, "O Servidor está dando a você VIP... Por favor reconecte." )
 			break 
 		end
 	end 
