@@ -1,5 +1,5 @@
 local text_ = textCreateDisplay ( )
-local text = textCreateTextItem ( "Thank You For Joining NG:RPG!\nPlease Wait, Loading The Resources...", 0.5, 0.5, "hight", 255, 255, 255, 255, 2, "center", "center", 2 ) 
+local text = textCreateTextItem ( "Obrigado por entrar no servidor da Sinuquinha de Domingo\nPor favor, aguarde, estamos baixando os recursos", 0.5, 0.5, "hight", 255, 255, 255, 255, 2, "center", "center", 2 ) 
 textDisplayAddText ( text_, text )
 
 addEventHandler ( "onPlayerJoin", root, function ( )
