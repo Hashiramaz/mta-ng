@@ -9,6 +9,7 @@ for i, v in ipairs ( locs ) do
 	exports.NGJobs:create3DText ( "Loteria", { x, y, z }, { 255, 255, 0 }, nil, { } )
 	--exports.customblips:createCustomBlip ( x, y, 2, 2, "icon.png", 245 )
 	createBlip ( x, y, z, 65, 2, 255, 255, 255, 255, 0, 450 )
+	createBlip ( x + 4, y, z, 38, 2, 255, 255, 255, 255, 0, 450 )
 	setElementFrozen ( peds[i], true )
 	addEventHandler ( "onClientPedDamage", peds[i], cancelEvent )
 
